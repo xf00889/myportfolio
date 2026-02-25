@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio website of Juby Neil Valiao - Web Developer specializing in Python, Django, PHP, Laravel, and JavaScript">
+  <meta name="author" content="Juby Neil Valiao">
+  <title>Juby Neil Valiao - Web Developer Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- TailwindCSS + DaisyUI -->
+  <link rel="stylesheet" href="css/output.css">
+</head>
+<body class="font-sans">
+  
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="navbar bg-base-100 sticky top-0 z-50 transition-all duration-300">
+    <div class="navbar-start">
+      <!-- Mobile Hamburger Menu -->
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Logo/Name -->
+      <a href="#hero" class="btn btn-ghost text-xl">Juby Neil Valiao</a>
+    </div>
+    
+    <!-- Desktop Menu (centered) -->
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div class="navbar-end">
+      <!-- Empty for now, can be used for theme toggle or other actions -->
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center hero-gradient">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Profile Picture -->
+      <div class="avatar mb-6 flex justify-center">
+        <div class="w-[270px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <img src="assets/img/profile.jpg" alt="Juby Neil Valiao" />
+        </div>
+      </div>
+      
+      <!-- Name and Title -->
+      <h1 class="text-5xl md:text-6xl font-bold mb-2">Juby Neil Valiao</h1>
+      <h2 class="text-2xl md:text-3xl text-primary mb-4">Web Developer</h2>
+      <p class="text-lg md:text-xl text-base-content/70 mb-6">
+        Transforming ideas into exceptional digital experiences
+      </p>
+      
+      <!-- Skill Badges -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <span class="badge badge-primary badge-lg">Python</span>
+        <span class="badge badge-primary badge-lg">Django</span>
+        <span class="badge badge-primary badge-lg">PHP</span>
+        <span class="badge badge-primary badge-lg">Laravel</span>
+        <span class="badge badge-primary badge-lg">JavaScript</span>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
+        <a href="#contact" class="btn btn-outline btn-lg">Contact Me</a>
+        <a href="assets/pdf/resume.pdf" download class="btn btn-secondary btn-lg">
+          Download CV
+        </a>
+      </div>
+      
+      <!-- Social Links -->
+      <div class="flex justify-center gap-4">
+        <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/[username]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-base-200">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Experience</h2>
+      
+      <div class="space-y-8 max-w-4xl mx-auto">
+        <!-- Experience Card 1 - Most Recent -->
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+              <div>
+                <h3 class="card-title text-2xl">Full Stack Developer</h3>
+                <p class="text-primary font-semibold">Freelance</p>
+              </div>
+              <div class="badge badge-outline mt-2 md:mt-0">Feb 2025 – Present</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Experience Card 2 -->
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+              <div>
+                <h3 class="card-title text-2xl">Intern</h3>
+                <p class="text-primary font-semibold">NORSU-BSC</p>
+              </div>
+              <div class="badge badge-outline mt-2 md:mt-0">July 2024 – March 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-base-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Education</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <!-- Education Card 1 - Most Recent -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">B.S. in Information Technology</h3>
+            <p class="text-primary font-semibold">NORSU-BSC</p>
+            <p class="text-sm text-base-content/70">2020–2025</p>
+            <div class="badge badge-success mt-2">Profecient in Desktop Development</div>
+          </div>
+        </div>
+        
+        <!-- Education Card 2 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">General Academic Strand</h3>
+            <p class="text-primary font-semibold">Miguel L. Daclan National High School</p>
+            <p class="text-sm text-base-content/70">2016–2018</p>
+            <div class="badge badge-success mt-2">With Honors</div>
+          </div>
+        </div>
+        
+        <!-- Education Card 3 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">Vicente Z. Badon Campus</h3>
+            <p class="text-sm text-base-content/70">2012–2016</p>
+            <div class="badge badge-success mt-2">with honors</div>
+          </div>
+        </div>
+        
+        <!-- Education Card 4 -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body">
+            <h3 class="card-title">Bongalonan Elementary School</h3>
+            <p class="text-sm text-base-content/70">2008–2012</p>
+            <div class="badge badge-success mt-2">Valedictorian</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-base-200">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project Card 1: Portfolio Website -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">Portfolio Website</h3>
+            <p class="text-sm text-base-content/70">
+              A modern, responsive portfolio website built with HTML5, TailwindCSS, and DaisyUI.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">HTML5</span>
+              <span class="badge badge-sm">TailwindCSS</span>
+              <span class="badge badge-sm">DaisyUI</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/portfolio" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 2: NORSU Alumni Web Portal -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">NORSU Alumni Web Portal</h3>
+            <p class="text-sm text-base-content/70">
+              A comprehensive web portal for alumni management and networking.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">PHP</span>
+              <span class="badge badge-sm">Laravel</span>
+              <span class="badge badge-sm">MySQL</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/norsu-alumni" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 3: CTTMO Traffic Violation Management System -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">CTTMO Traffic Violation Management System</h3>
+            <p class="text-sm text-base-content/70">
+              A system for managing traffic violations and enforcement records.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">PHP</span>
+              <span class="badge badge-sm">Laravel</span>
+              <span class="badge badge-sm">MySQL</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/cttmo-traffic" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 4: Pharmacy Inventory Management System -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">Pharmacy Inventory Management System</h3>
+            <p class="text-sm text-base-content/70">
+              An inventory management system for tracking pharmacy stock and supplies.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">PHP</span>
+              <span class="badge badge-sm">Laravel</span>
+              <span class="badge badge-sm">MySQL</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/pharmacy-inventory" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 5: CRUD To Do List with Email Updates -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">CRUD To Do List with Email Updates</h3>
+            <p class="text-sm text-base-content/70">
+              A task management application with email notifications for updates.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">Python</span>
+              <span class="badge badge-sm">Django</span>
+              <span class="badge badge-sm">PostgreSQL</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/todo-email" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 6: Django Payroll Management System with QR & Face Recognition -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">Django Payroll Management System with QR & Face Recognition</h3>
+            <p class="text-sm text-base-content/70">
+              A payroll system with biometric authentication using QR codes and facial recognition.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">Python</span>
+              <span class="badge badge-sm">Django</span>
+              <span class="badge badge-sm">OpenCV</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/payroll-biometric" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Card 7: Laravel Chatbot -->
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title">Laravel Chatbot</h3>
+            <p class="text-sm text-base-content/70">
+              An AI-powered chatbot built with Laravel for intelligent conversations.
+            </p>
+            
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="badge badge-sm">PHP</span>
+              <span class="badge badge-sm">Laravel</span>
+              <span class="badge badge-sm">AI/ML</span>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div class="card-actions justify-end mt-4">
+              <a href="https://github.com/[username]/laravel-chatbot" target="_blank" rel="noopener" 
+                 class="btn btn-primary btn-sm">
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies" class="py-20 bg-base-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Hobbies & Interests</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Hobby Card 1: Gaming -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+            <h3 class="card-title">Gaming</h3>
+          </div>
+        </div>
+        
+        <!-- Hobby Card 2: Reading -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <h3 class="card-title">Reading</h3>
+          </div>
+        </div>
+        
+        <!-- Hobby Card 3: Badminton -->
+        <div class="card bg-base-200 shadow-xl">
+          <div class="card-body items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            <h3 class="card-title">Badminton</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-base-200">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
+      
+      <div class="max-w-2xl mx-auto">
+        <!-- Contact Info -->
+        <div class="text-center mb-8">
+          <p class="text-lg mb-4">
+            <span class="font-semibold">Email:</span> 
+            <a href="mailto:hutchiejn@gmail.com" class="link link-primary">hutchiejn@gmail.com</a>
+          </p>
+          
+          <!-- Social Links -->
+          <div class="flex justify-center gap-4">
+            <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Static Contact Form -->
+        <form id="contact-form" class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input type="text" name="name" placeholder="Your name" class="input input-bordered w-full" required />
+            </div>
+            
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input type="email" name="email" placeholder="your.email@example.com" class="input input-bordered w-full" required />
+            </div>
+            
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Message</span>
+              </label>
+              <textarea name="message" class="textarea textarea-bordered h-32" placeholder="Your message" required></textarea>
+            </div>
+            
+            <div class="form-control mt-6">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+            
+            <p class="text-sm text-center text-base-content/70 mt-4">
+              Note: This is a static form. Please use the email address above to contact directly.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer footer-center p-10 bg-base-300 text-base-content">
+    <div>
+      <p class="font-bold text-lg">Juby Neil Valiao</p>
+      <p>Thank you for visiting my portfolio!</p>
+    </div>
+    <div>
+      <div class="grid grid-flow-col gap-4">
+        <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/[username]" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p>Copyright © 2025 - All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

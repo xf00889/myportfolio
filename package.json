@@ -1,0 +1,16 @@
+{
+  "name": "static-portfolio-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive portfolio website for Juby Neil Valiao",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./css/styles.css -o ./css/output.css --watch",
+    "build": "npx tailwindcss -i ./css/styles.css -o ./css/output.css --minify"
+  },
+  "keywords": ["portfolio", "tailwindcss", "daisyui"],
+  "author": "Juby Neil Valiao",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "daisyui": "^4.12.0"
+  }
+}
