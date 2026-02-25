@@ -7,518 +7,1355 @@
   <meta name="author" content="Juby Neil Valiao">
   <title>Juby Neil Valiao - Web Developer Portfolio</title>
   
-  <!-- Google Fonts -->
+  <!-- Premium Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- TailwindCSS + DaisyUI -->
+  <!-- TailwindCSS + Custom Premium Styles -->
   <link rel="stylesheet" href="css/output.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-sans">
+<body class="font-sans bg-black text-white">
   
-  <!-- Navigation Bar -->
-  <nav id="navbar" class="navbar bg-base-100 sticky top-0 z-50 transition-all duration-300">
-    <div class="navbar-start">
-      <!-- Mobile Hamburger Menu -->
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-          </svg>
-        </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#hobbies">Hobbies</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- Premium Navigation Bar -->
+  <nav id="navbar" class="navbar navbar-premium fixed top-0 z-50 transition-all duration-300 w-full">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between w-full py-3">
+        <!-- Left: Hamburger + Logo -->
+        <div class="flex items-center gap-2">
+          <!-- Mobile Hamburger Menu -->
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden text-white p-2 min-h-0 h-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 glass rounded-box w-52">
+              <li><a href="#hero" class="text-white hover:text-blue-400">Home</a></li>
+              <li><a href="#experience" class="text-white hover:text-blue-400">Experience</a></li>
+              <li><a href="#education" class="text-white hover:text-blue-400">Education</a></li>
+              <li><a href="#projects" class="text-white hover:text-blue-400">Projects</a></li>
+              <li><a href="#hobbies" class="text-white hover:text-blue-400">Hobbies</a></li>
+              <li><a href="#contact" class="text-white hover:text-blue-400">Contact</a></li>
+            </ul>
+          </div>
+          <!-- Logo/Name -->
+          <a href="#hero" class="text-base sm:text-lg md:text-xl font-bold text-gradient text-premium whitespace-nowrap">Juby Neil Valiao</a>
+        </div>
+        
+        <!-- Right: Desktop Menu -->
+        <div class="hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 space-x-2">
+            <li><a href="#hero" class="text-white hover:text-blue-400 transition-colors">Home</a></li>
+            <li><a href="#experience" class="text-white hover:text-blue-400 transition-colors">Experience</a></li>
+            <li><a href="#education" class="text-white hover:text-blue-400 transition-colors">Education</a></li>
+            <li><a href="#projects" class="text-white hover:text-blue-400 transition-colors">Projects</a></li>
+            <li><a href="#hobbies" class="text-white hover:text-blue-400 transition-colors">Hobbies</a></li>
+            <li><a href="#contact" class="text-white hover:text-blue-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <!-- Logo/Name -->
-      <a href="#hero" class="btn btn-ghost text-xl">Juby Neil Valiao</a>
-    </div>
-    
-    <!-- Desktop Menu (centered) -->
-    <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    
-    <div class="navbar-end">
-      <!-- Empty for now, can be used for theme toggle or other actions -->
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex items-center justify-center hero-gradient">
-    <div class="container mx-auto px-4 text-center">
-      <!-- Profile Picture -->
-      <div class="avatar mb-6 flex justify-center">
-        <div class="w-[270px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          <img src="assets/img/profile.jpg" alt="Juby Neil Valiao" />
-        </div>
-      </div>
-      
-      <!-- Name and Title -->
-      <h1 class="text-5xl md:text-6xl font-bold mb-2">Juby Neil Valiao</h1>
-      <h2 class="text-2xl md:text-3xl text-primary mb-4">Web Developer</h2>
-      <p class="text-lg md:text-xl text-base-content/70 mb-6">
-        Transforming ideas into exceptional digital experiences
-      </p>
-      
-      <!-- Skill Badges -->
-      <div class="flex flex-wrap justify-center gap-2 mb-8">
-        <span class="badge badge-primary badge-lg">Python</span>
-        <span class="badge badge-primary badge-lg">Django</span>
-        <span class="badge badge-primary badge-lg">PHP</span>
-        <span class="badge badge-primary badge-lg">Laravel</span>
-        <span class="badge badge-primary badge-lg">JavaScript</span>
-      </div>
-      
-      <!-- CTA Buttons -->
-      <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
-        <a href="#contact" class="btn btn-outline btn-lg">Contact Me</a>
-        <a href="assets/pdf/resume.pdf" download class="btn btn-secondary btn-lg">
-          Download CV
-        </a>
-      </div>
-      
-      <!-- Social Links -->
-      <div class="flex justify-center gap-4">
-        <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/[username]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-ghost" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-          </svg>
-        </a>
-      </div>
+  <!-- Premium Hero Section -->
+  <section id="hero" class="hero-premium flex items-center justify-center relative overflow-hidden">
+    <!-- Enhanced Background Effects -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
     </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="py-20 bg-base-200">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Experience</h2>
-      
-      <div class="space-y-8 max-w-4xl mx-auto">
-        <!-- Experience Card 1 - Most Recent -->
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-              <div>
-                <h3 class="card-title text-2xl">Full Stack Developer</h3>
-                <p class="text-primary font-semibold">Freelance</p>
-              </div>
-              <div class="badge badge-outline mt-2 md:mt-0">Feb 2025 – Present</div>
-            </div>
-          </div>
-        </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-12 md:py-16">
         
-        <!-- Experience Card 2 -->
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-              <div>
-                <h3 class="card-title text-2xl">Intern</h3>
-                <p class="text-primary font-semibold">NORSU-BSC</p>
-              </div>
-              <div class="badge badge-outline mt-2 md:mt-0">July 2024 – March 2025</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="py-20 bg-base-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Education</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-        <!-- Education Card 1 - Most Recent -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body">
-            <h3 class="card-title">B.S. in Information Technology</h3>
-            <p class="text-primary font-semibold">NORSU-BSC</p>
-            <p class="text-sm text-base-content/70">2020–2025</p>
-            <div class="badge badge-success mt-2">Profecient in Desktop Development</div>
-          </div>
-        </div>
-        
-        <!-- Education Card 2 -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body">
-            <h3 class="card-title">General Academic Strand</h3>
-            <p class="text-primary font-semibold">Miguel L. Daclan National High School</p>
-            <p class="text-sm text-base-content/70">2016–2018</p>
-            <div class="badge badge-success mt-2">With Honors</div>
-          </div>
-        </div>
-        
-        <!-- Education Card 3 -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body">
-            <h3 class="card-title">Vicente Z. Badon Campus</h3>
-            <p class="text-sm text-base-content/70">2012–2016</p>
-            <div class="badge badge-success mt-2">with honors</div>
-          </div>
-        </div>
-        
-        <!-- Education Card 4 -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body">
-            <h3 class="card-title">Bongalonan Elementary School</h3>
-            <p class="text-sm text-base-content/70">2008–2012</p>
-            <div class="badge badge-success mt-2">Valedictorian</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-base-200">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project Card 1: Portfolio Website -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">Portfolio Website</h3>
-            <p class="text-sm text-base-content/70">
-              A modern, responsive portfolio website built with HTML5, TailwindCSS, and DaisyUI.
+        <!-- Left Column - Hero Content -->
+        <div class="order-2 lg:order-1 text-center lg:text-left space-y-4 md:space-y-5">
+          
+          <!-- Main Headline - Value Proposition First -->
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+            <span class="text-white">Building</span>
+            <span class="text-gradient glow-text block">Modern Web Solutions</span>
+            <span class="text-white">That Drive Results</span>
+          </h1>
+          
+          <!-- Subheadline with Name & Role -->
+          <div>
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-1">
+              Hi, I'm <span class="text-blue-400 font-semibold">Juby Neil Valiao</span>
             </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">HTML5</span>
-              <span class="badge badge-sm">TailwindCSS</span>
-              <span class="badge badge-sm">DaisyUI</span>
+            <p class="text-sm sm:text-base md:text-lg text-gray-400">
+              Full-Stack Developer specializing in Python, Django, PHP & Laravel
+            </p>
+          </div>
+          
+          <!-- Value Statement -->
+          <p class="text-xs sm:text-sm md:text-base text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 lg:px-0">
+            I transform complex business requirements into elegant, scalable web applications. 
+            From concept to deployment, I deliver solutions that exceed expectations.
+          </p>
+          
+          <!-- Key Stats/Highlights -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
+            <div class="text-center lg:text-left">
+              <div class="text-xl sm:text-2xl font-bold text-gradient">5+</div>
+              <div class="text-xs text-gray-400">Technologies</div>
+            </div>
+            <div class="w-px bg-white/10"></div>
+            <div class="text-center lg:text-left">
+              <div class="text-xl sm:text-2xl font-bold text-gradient">24h</div>
+              <div class="text-xs text-gray-400">Response Time</div>
+            </div>
+            <div class="w-px bg-white/10"></div>
+            <div class="text-center lg:text-left">
+              <div class="text-xl sm:text-2xl font-bold text-gradient">100%</div>
+              <div class="text-xs text-gray-400">Commitment</div>
+            </div>
+          </div>
+          
+          <!-- Tech Stack Pills - Compact -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-1.5 sm:gap-2 px-4 lg:px-0">
+            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-blue-400 border border-blue-400/30">Python</span>
+            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-purple-400 border border-purple-400/30">Django</span>
+            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30">PHP</span>
+            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-green-400 border border-green-400/30">Laravel</span>
+            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-yellow-400 border border-yellow-400/30">JavaScript</span>
+          </div>
+          
+          <!-- CTA Buttons - Clear Hierarchy -->
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 px-4 lg:px-0">
+            <a href="#projects" class="btn-premium px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white group">
+              <span>View My Work</span>
+              <svg class="inline-block w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a href="#contact" class="btn-outline-premium px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold group">
+              <span>Let's Talk</span>
+              <svg class="inline-block w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Secondary Action -->
+          <div class="flex justify-center lg:justify-start">
+            <a href="assets/pdf/resume.pdf" download class="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="group-hover:underline">Download Resume</span>
+            </a>
+          </div>
+          
+        </div>
+
+        <!-- Right Column - Profile Image -->
+        <div class="hidden lg:flex order-1 lg:order-2 justify-center lg:justify-end mb-8 lg:mb-0">
+          <div class="relative">
+            <!-- Profile Picture with Premium Styling -->
+            <div class="w-[220px] sm:w-[260px] md:w-[300px] lg:w-[380px] xl:w-[420px] aspect-square">
+              <div class="w-full h-full rounded-full glow-border floating relative overflow-hidden">
+                <img src="assets/img/profile.png" alt="Juby Neil Valiao - Full Stack Developer" class="w-full h-full object-cover rounded-full" />
+                
+                <!-- Glassmorphism overlay effect -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10"></div>
+                
+                <!-- Animated border ring -->
+                <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 animate-spin-slow" style="animation-duration: 8s;"></div>
+                <div class="absolute inset-1 rounded-full bg-black"></div>
+                <div class="absolute inset-1 rounded-full overflow-hidden">
+                  <img src="assets/img/profile.png" alt="Juby Neil Valiao - Full Stack Developer" class="w-full h-full object-cover rounded-full" />
+                </div>
+              </div>
             </div>
             
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/portfolio" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
+            <!-- Floating Social Links -->
+            <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex gap-2">
+              <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-blue-500/20 transition-all glow-hover group" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-gray-500/20 transition-all glow-hover group" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-blue-600/20 transition-all glow-hover group" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-pink-600/20 transition-all glow-hover group" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-pink-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
               </a>
             </div>
+            
+            <!-- Floating decorative elements -->
+            <div class="absolute -top-4 -right-4 w-8 h-8 bg-blue-400/20 rounded-full blur-sm animate-pulse"></div>
+            <div class="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-400/20 rounded-full blur-sm animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 -right-8 w-6 h-6 bg-cyan-400/20 rounded-full blur-sm animate-pulse" style="animation-delay: 2s;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#experience" class="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors group" aria-label="Scroll to experience section">
+        <span class="text-sm">Scroll to explore</span>
+        <svg class="w-6 h-6 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Premium Experience Section with Vertical Timeline -->
+  <section id="experience" class="py-24 section-dark relative overflow-hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="text-5xl font-bold text-center mb-20 text-gradient">Professional Experience</h2>
+      
+      <!-- Vertical Timeline -->
+      <div class="relative max-w-5xl mx-auto">
+        <!-- Timeline Line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-cyan-400 hidden md:block"></div>
+        
+        <!-- Timeline Items -->
+        <div class="space-y-16">
+          
+          <!-- Experience Item 1 - Most Recent (Right Side) -->
+          <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Left Side - Empty on desktop -->
+            <div class="hidden md:block"></div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full border-4 border-black z-10 hidden md:block pulse-dot"></div>
+            
+            <!-- Right Side - Content -->
+            <div class="experience-card group">
+              <!-- Date Badge -->
+              <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-green-400 border border-green-400/30 text-sm text-mono mb-4">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span>Feb 2025 – Present</span>
+              </div>
+              
+              <!-- Job Title -->
+              <h3 class="text-3xl md:text-4xl font-bold mb-4 text-white group-hover:text-gradient transition-all">
+                Full Stack Developer
+              </h3>
+              
+              <!-- Company & Location -->
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <div class="flex items-center gap-2">
+                  <span class="text-blue-400 font-semibold text-xl">Freelance</span>
+                </div>
+                <span class="glass px-3 py-1.5 rounded-full text-sm text-cyan-400 border border-cyan-400/30 font-medium">
+                  Remote
+                </span>
+                <span class="glass px-3 py-1.5 rounded-full text-sm text-green-400 border border-green-400/30 font-medium">
+                  Active
+                </span>
+              </div>
+              
+              <!-- Description -->
+              <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                Developing modern web applications using cutting-edge technologies. 
+                Specializing in full-stack development with Python, Django, PHP, Laravel, and JavaScript frameworks.
+              </p>
+              
+              <!-- Divider -->
+              <div class="h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent mb-8"></div>
+              
+              <!-- Key Achievements -->
+              <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Key Achievements</h4>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Built and deployed multiple full-stack applications with modern architecture</span>
+                  </div>
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Implemented responsive designs with modern UI/UX principles</span>
+                  </div>
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Collaborated with clients to deliver custom solutions on time</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Technologies -->
+              <div>
+                <div class="mb-4">
+                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Tech Stack</h4>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 text-sm font-medium hover:bg-blue-500/20 transition-colors">
+                    Python
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-green-500/10 text-green-400 border border-green-400/30 text-sm font-medium hover:bg-green-500/20 transition-colors">
+                    Django
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-400/30 text-sm font-medium hover:bg-purple-500/20 transition-colors">
+                    PHP
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-red-500/10 text-red-400 border border-red-400/30 text-sm font-medium hover:bg-red-500/20 transition-colors">
+                    Laravel
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-400/30 text-sm font-medium hover:bg-yellow-500/20 transition-colors">
+                    JavaScript
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-400/30 text-sm font-medium hover:bg-orange-500/20 transition-colors">
+                    Git
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 text-sm font-medium hover:bg-cyan-500/20 transition-colors">
+                    Tailwind CSS
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-400/30 text-sm font-medium hover:bg-indigo-500/20 transition-colors">
+                    Bootstrap
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Experience Item 2 (Left Side) -->
+          <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- Left Side - Content -->
+            <div class="experience-card group">
+              <!-- Date Badge -->
+              <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono mb-4">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <span>July 2024 – March 2025</span>
+              </div>
+              
+              <!-- Job Title -->
+              <h3 class="text-3xl md:text-4xl font-bold mb-4 text-white group-hover:text-gradient transition-all">
+                Intern
+              </h3>
+              
+              <!-- Company & Location -->
+              <div class="flex flex-wrap items-center gap-3 mb-6">
+                <div class="flex items-center gap-2">
+                  <span class="text-blue-400 font-semibold text-xl">NORSU-BSC</span>
+                </div>
+                <span class="glass px-3 py-1.5 rounded-full text-sm text-orange-400 border border-orange-400/30 font-medium">
+                  On-site
+                </span>
+                <span class="glass px-3 py-1.5 rounded-full text-sm text-gray-400 border border-gray-400/30 font-medium">
+                  Completed
+                </span>
+              </div>
+              
+              <!-- Description -->
+              <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                Gained hands-on experience in software development, database management, 
+                and system administration. Contributed to various projects and learned industry best practices.
+              </p>
+              
+              <!-- Divider -->
+              <div class="h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent mb-8"></div>
+              
+              <!-- Key Achievements -->
+              <div class="mb-8">
+                <div class="flex items-center gap-2 mb-4">
+                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Key Achievements</h4>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Assisted in developing web applications for university systems</span>
+                  </div>
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Learned database design and optimization techniques</span>
+                  </div>
+                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                    </div>
+                    <span class="text-gray-300 flex-1">Collaborated with team members on software projects</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Technologies -->
+              <div>
+                <div class="mb-4">
+                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Tech Stack</h4>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-4 py-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-400/30 text-sm font-medium hover:bg-purple-500/20 transition-colors">
+                    PHP
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-red-500/10 text-red-400 border border-red-400/30 text-sm font-medium hover:bg-red-500/20 transition-colors">
+                    Laravel
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 text-sm font-medium hover:bg-blue-500/20 transition-colors">
+                    MySQL
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-400/30 text-sm font-medium hover:bg-orange-500/20 transition-colors">
+                    Git
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 text-sm font-medium hover:bg-cyan-500/20 transition-colors">
+                    Tailwind CSS
+                  </span>
+                  <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-400/30 text-sm font-medium hover:bg-indigo-500/20 transition-colors">
+                    Bootstrap
+                  </span>
+                </div>                </div>
+              </div>
+            </div>
+            
+            <!-- Timeline Dot -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full border-4 border-black z-10 hidden md:block pulse-dot"></div>
+            
+            <!-- Right Side - Empty on desktop -->
+            <div class="hidden md:block"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Education Section with Vertical Timeline -->
+  <section id="education" class="py-24 section-darker relative overflow-hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="text-5xl font-bold text-center mb-20 text-gradient">Education Journey</h2>
+      
+      <!-- Vertical Timeline -->
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Timeline Line -->
+        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-400 via-blue-400 to-purple-400"></div>
+        
+        <!-- Timeline Items -->
+        <div class="space-y-12">
+          
+          <!-- Education Item 1 - Most Recent -->
+          <div class="relative pl-20 md:pl-0">
+            <!-- Timeline Dot -->
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
+            
+            <!-- Content -->
+            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+              <!-- Left side on desktop -->
+              <div class="hidden md:block md:text-right md:pr-12">
+                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2020 – 2025</span>
+                </div>
+              </div>
+              
+              <!-- Right side on desktop, full width on mobile -->
+              <div class="education-card group">
+                <!-- Mobile date -->
+                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono mb-4">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2020 – 2025</span>
+                </div>
+                
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
+                  <svg class="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                  </svg>
+                </div>
+                
+                <!-- Degree -->
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
+                  B.S. in Information Technology
+                </h3>
+                
+                <!-- School -->
+                <p class="text-blue-400 font-semibold text-lg mb-4">NORSU-BSC</p>
+                
+                <!-- Achievement Badge -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass px-4 py-2 rounded-lg text-green-400 border border-green-400/30 text-sm font-medium">
+                    Proficient in Desktop Development
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education Item 2 -->
+          <div class="relative pl-20 md:pl-0">
+            <!-- Timeline Dot -->
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
+            
+            <!-- Content -->
+            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+              <!-- Left side on desktop -->
+              <div class="hidden md:block md:text-right md:pr-12">
+                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-blue-400 border border-blue-400/30 text-sm text-mono">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2016 – 2018</span>
+                </div>
+              </div>
+              
+              <!-- Right side on desktop, full width on mobile -->
+              <div class="education-card group">
+                <!-- Mobile date -->
+                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-blue-400 border border-blue-400/30 text-sm text-mono mb-4">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2016 – 2018</span>
+                </div>
+                
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center mb-4">
+                  <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                  </svg>
+                </div>
+                
+                <!-- Degree -->
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
+                  General Academic Strand
+                </h3>
+                
+                <!-- School -->
+                <p class="text-blue-400 font-semibold text-lg mb-4">Miguel L. Daclan National High School</p>
+                
+                <!-- Achievement Badge -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass px-4 py-2 rounded-lg text-yellow-400 border border-yellow-400/30 text-sm font-medium">
+                    With Honors
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education Item 3 -->
+          <div class="relative pl-20 md:pl-0">
+            <!-- Timeline Dot -->
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
+            
+            <!-- Content -->
+            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+              <!-- Left side on desktop -->
+              <div class="hidden md:block md:text-right md:pr-12">
+                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-indigo-400 border border-indigo-400/30 text-sm text-mono">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2012 – 2016</span>
+                </div>
+              </div>
+              
+              <!-- Right side on desktop, full width on mobile -->
+              <div class="education-card group">
+                <!-- Mobile date -->
+                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-indigo-400 border border-indigo-400/30 text-sm text-mono mb-4">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2012 – 2016</span>
+                </div>
+                
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-4">
+                  <svg class="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
+                </div>
+                
+                <!-- Degree -->
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
+                  Vicente Z. Badon Campus
+                </h3>
+                
+                <!-- School -->
+                <p class="text-blue-400 font-semibold text-lg mb-4">Junior High School</p>
+                
+                <!-- Achievement Badge -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass px-4 py-2 rounded-lg text-purple-400 border border-purple-400/30 text-sm font-medium">
+                    With Honors
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education Item 4 -->
+          <div class="relative pl-20 md:pl-0">
+            <!-- Timeline Dot -->
+            <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
+            
+            <!-- Content -->
+            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+              <!-- Left side on desktop -->
+              <div class="hidden md:block md:text-right md:pr-12">
+                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-purple-400 border border-purple-400/30 text-sm text-mono">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2008 – 2012</span>
+                </div>
+              </div>
+              
+              <!-- Right side on desktop, full width on mobile -->
+              <div class="education-card group">
+                <!-- Mobile date -->
+                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-purple-400 border border-purple-400/30 text-sm text-mono mb-4">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>2008 – 2012</span>
+                </div>
+                
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-4">
+                  <svg class="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                  </svg>
+                </div>
+                
+                <!-- Degree -->
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
+                  Bongalonan Elementary School
+                </h3>
+                
+                <!-- School -->
+                <p class="text-blue-400 font-semibold text-lg mb-4">Elementary Education</p>
+                
+                <!-- Achievement Badge -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="glass px-4 py-2 rounded-lg text-cyan-400 border border-cyan-400/30 text-sm font-medium">
+                    Valedictorian
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Projects Section with Enhanced Design -->
+  <section id="projects" class="py-24 section-dark relative overflow-hidden">
+    <div class="container mx-auto px-4">
+      <!-- Section Header with Subtitle -->
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-bold mb-4 text-gradient">Featured Projects</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Showcasing real-world solutions with measurable impact and modern technology stacks
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1: Portfolio Website -->
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/portfolio.PNG" alt="Portfolio Website" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2025</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">Personal Project</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            Portfolio Website
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Modern portfolio showcasing premium design principles with glassmorphism effects and smooth animations.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-blue-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-blue-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">Responsive design with 100% mobile compatibility and optimized performance</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors">Django</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors">CSS</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/[username]/portfolio" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-blue-400/50 transition-all flex items-center justify-center" aria-label="View Live Demo">
+              <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
         
         <!-- Project Card 2: NORSU Alumni Web Portal -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">NORSU Alumni Web Portal</h3>
-            <p class="text-sm text-base-content/70">
-              A comprehensive web portal for alumni management and networking.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">PHP</span>
-              <span class="badge badge-sm">Laravel</span>
-              <span class="badge badge-sm">MySQL</span>
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/alumni.PNG" alt="NORSU Alumni Web Portal" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2024</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">University Project</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            NORSU Alumni Portal
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Comprehensive web portal connecting alumni with networking, event coordination, and career opportunities.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-green-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-green-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">Streamlined alumni engagement with 500+ registered users and event management</p>
+              </div>
             </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/norsu-alumni" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors">Django</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">Bootstrap</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
             </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/xf00889/alumnisystem" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-green-400/50 transition-all flex items-center justify-center" aria-label="View Live Demo">
+              <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
         
-        <!-- Project Card 3: CTTMO Traffic Violation Management System -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">CTTMO Traffic Violation Management System</h3>
-            <p class="text-sm text-base-content/70">
-              A system for managing traffic violations and enforcement records.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">PHP</span>
-              <span class="badge badge-sm">Laravel</span>
-              <span class="badge badge-sm">MySQL</span>
+        <!-- Project Card 3: CTTMO Traffic Management -->
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/cttmo.png" alt="CTTMO Traffic Management System" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2024</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">Government Project</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            Traffic Management System
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Comprehensive system for managing traffic violations, enforcement records, and administrative workflows.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-red-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-red-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">Reduced processing time by 60% with automated violation tracking and reporting</p>
+              </div>
             </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/cttmo-traffic" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors">Django</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">Bootstrap</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
             </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/xf00889/CTTMO-Traffic-violation-Management-System" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-red-400/50 transition-all flex items-center justify-center" aria-label="View Case Study">
+              <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </a>
           </div>
         </div>
         
-        <!-- Project Card 4: Pharmacy Inventory Management System -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">Pharmacy Inventory Management System</h3>
-            <p class="text-sm text-base-content/70">
-              An inventory management system for tracking pharmacy stock and supplies.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">PHP</span>
-              <span class="badge badge-sm">Laravel</span>
-              <span class="badge badge-sm">MySQL</span>
+        <!-- Project Card 4: Pharmacy Inventory System -->
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/healthcare.jpg" alt="Pharmacy Inventory System" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2024</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">Healthcare</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            Pharmacy Inventory
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Advanced inventory management with real-time stock tracking, automated reordering, and expiry alerts.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-cyan-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-cyan-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">Improved inventory accuracy by 85% and reduced waste through smart alerts</p>
+              </div>
             </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/pharmacy-inventory" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-red-400 border border-red-400/30 text-xs font-medium hover:bg-red-500/10 transition-colors">Java Netbeans</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors">MySQL</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">JavaFX</span>
             </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/xf00889/pharmacy_inventory_management_system" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-cyan-400/50 transition-all flex items-center justify-center" aria-label="View Demo">
+              <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </a>
           </div>
         </div>
         
-        <!-- Project Card 5: CRUD To Do List with Email Updates -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">CRUD To Do List with Email Updates</h3>
-            <p class="text-sm text-base-content/70">
-              A task management application with email notifications for updates.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">Python</span>
-              <span class="badge badge-sm">Django</span>
-              <span class="badge badge-sm">PostgreSQL</span>
+        <!-- Project Card 5: Smart Todo Application -->
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/todo.png" alt="Smart Todo Application" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2024</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">Productivity</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            Smart Todo App
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Task management with intelligent email notifications, priority levels, and team collaboration features.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-yellow-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-yellow-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">Automated email reminders boost task completion rates by 40%</p>
+              </div>
             </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/todo-email" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">PHP</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors">MySQL</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-cyan-400 border border-cyan-400/30 text-xs font-medium hover:bg-cyan-500/10 transition-colors">CSS</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
             </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/xf00889/CRUD_TODOLIST_EMAIL_UPDATE" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-yellow-400/50 transition-all flex items-center justify-center" aria-label="View Progress">
+              <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </a>
           </div>
         </div>
         
-        <!-- Project Card 6: Django Payroll Management System with QR & Face Recognition -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">Django Payroll Management System with QR & Face Recognition</h3>
-            <p class="text-sm text-base-content/70">
-              A payroll system with biometric authentication using QR codes and facial recognition.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">Python</span>
-              <span class="badge badge-sm">Django</span>
-              <span class="badge badge-sm">OpenCV</span>
-            </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/payroll-biometric" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
+        <!-- Project Card 6: Biometric Payroll System -->
+        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Project Image/Icon -->
+          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/payroll.PNG" alt="Biometric Payroll System" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          
+          <!-- Project Meta -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-mono text-xs text-gray-500">2023</span>
+            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+            <span class="text-xs text-gray-500">Enterprise</span>
+          </div>
+          
+          <!-- Project Title -->
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+            Biometric Payroll
+          </h3>
+          
+          <!-- Project Description -->
+          <p class="text-gray-300 leading-relaxed mb-4 text-base">
+            Advanced payroll system with QR code and facial recognition for secure, automated attendance tracking.
+          </p>
+          
+          <!-- Key Outcome/Impact -->
+          <div class="glass p-4 rounded-lg mb-6 border border-purple-400/20">
+            <div class="flex items-start gap-3">
+              <div>
+                <p class="text-sm font-semibold text-purple-400 mb-1">Impact</p>
+                <p class="text-sm text-gray-300">99.7% accuracy in attendance with zero time theft and instant payroll processing</p>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Project Card 7: Laravel Chatbot -->
-        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title">Laravel Chatbot</h3>
-            <p class="text-sm text-base-content/70">
-              An AI-powered chatbot built with Laravel for intelligent conversations.
-            </p>
-            
-            <!-- Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 mt-4">
-              <span class="badge badge-sm">PHP</span>
-              <span class="badge badge-sm">Laravel</span>
-              <span class="badge badge-sm">AI/ML</span>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors">Django</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">Bootstrap</span>
+              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
             </div>
-            
-            <!-- GitHub Link -->
-            <div class="card-actions justify-end mt-4">
-              <a href="https://github.com/[username]/laravel-chatbot" target="_blank" rel="noopener" 
-                 class="btn btn-primary btn-sm">
-                View on GitHub
-              </a>
-            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex gap-3">
+            <a href="https://github.com/xf00889/django_payrollMS_with_QR_and_facerecognition" target="_blank" rel="noopener" 
+               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
+              <span class="flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </span>
+            </a>
+            <a href="#" class="glass px-4 py-3 rounded-lg border border-white/20 hover:border-purple-400/50 transition-all flex items-center justify-center" aria-label="View Technical Details">
+              <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hobbies Section -->
-  <section id="hobbies" class="py-20 bg-base-100">
+  <!-- Premium Hobbies Section -->
+  <section id="hobbies" class="py-24 section-darker relative overflow-hidden">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Hobbies & Interests</h2>
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-bold mb-4 text-gradient">Hobbies & Interests</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Beyond coding, these passions fuel my creativity and problem-solving skills
+        </p>
+      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <!-- Hobby Card 1: Gaming -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body items-center text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-            </svg>
-            <h3 class="card-title">Gaming</h3>
+        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Decorative gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div class="relative z-10">
+            <!-- Icon container with enhanced styling -->
+            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+              </svg>
+            </div>
+            
+            <!-- Title with enhanced typography -->
+            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+              Gaming
+            </h3>
+            
+            <!-- Divider -->
+            <div class="h-1 w-12 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-4 rounded-full"></div>
+            
+            <!-- Description with better line height -->
+            <p class="text-gray-300 leading-relaxed mb-4 px-2">
+              Exploring virtual worlds and strategic gameplay
+            </p>
+            
+            <!-- Skills connection -->
+            <div class="glass p-3 rounded-lg border border-blue-400/20">
+              <p class="text-sm text-blue-400 font-semibold mb-1">Develops</p>
+              <p class="text-xs text-gray-400">Strategic thinking & problem-solving</p>
+            </div>
           </div>
         </div>
         
         <!-- Hobby Card 2: Reading -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body items-center text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            <h3 class="card-title">Reading</h3>
+        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Decorative gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div class="relative z-10">
+            <!-- Icon container with enhanced styling -->
+            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            
+            <!-- Title with enhanced typography -->
+            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+              Reading
+            </h3>
+            
+            <!-- Divider -->
+            <div class="h-1 w-12 bg-gradient-to-r from-green-400 to-cyan-400 mx-auto mb-4 rounded-full"></div>
+            
+            <!-- Description with better line height -->
+            <p class="text-gray-300 leading-relaxed mb-4 px-2">
+              Continuous learning through books and articles
+            </p>
+            
+            <!-- Skills connection -->
+            <div class="glass p-3 rounded-lg border border-green-400/20">
+              <p class="text-sm text-green-400 font-semibold mb-1">Develops</p>
+              <p class="text-xs text-gray-400">Knowledge expansion & critical thinking</p>
+            </div>
           </div>
         </div>
         
         <!-- Hobby Card 3: Badminton -->
-        <div class="card bg-base-200 shadow-xl">
-          <div class="card-body items-center text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-            <h3 class="card-title">Badminton</h3>
+        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+          <!-- Decorative gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div class="relative z-10">
+            <!-- Icon container with enhanced styling -->
+            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Racquet head (oval) -->
+                <ellipse cx="12" cy="7" rx="5" ry="6" stroke-width="2"/>
+                <!-- Strings horizontal -->
+                <line x1="8" y1="5" x2="16" y2="5" stroke-width="0.5" opacity="0.6"/>
+                <line x1="8" y1="7" x2="16" y2="7" stroke-width="0.5" opacity="0.6"/>
+                <line x1="8" y1="9" x2="16" y2="9" stroke-width="0.5" opacity="0.6"/>
+                <!-- Strings vertical -->
+                <line x1="10" y1="2" x2="10" y2="12" stroke-width="0.5" opacity="0.6"/>
+                <line x1="12" y1="1" x2="12" y2="13" stroke-width="0.5" opacity="0.6"/>
+                <line x1="14" y1="2" x2="14" y2="12" stroke-width="0.5" opacity="0.6"/>
+                <!-- Handle -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13v9"/>
+                <!-- Grip detail -->
+                <line x1="10.5" y1="20" x2="13.5" y2="20" stroke-width="2" stroke-linecap="round"/>
+                <line x1="10.5" y1="22" x2="13.5" y2="22" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            
+            <!-- Title with enhanced typography -->
+            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
+              Badminton
+            </h3>
+            
+            <!-- Divider -->
+            <div class="h-1 w-12 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mb-4 rounded-full"></div>
+            
+            <!-- Description with better line height -->
+            <p class="text-gray-300 leading-relaxed mb-4 px-2">
+              Staying active with competitive sports
+            </p>
+            
+            <!-- Skills connection -->
+            <div class="glass p-3 rounded-lg border border-orange-400/20">
+              <p class="text-sm text-orange-400 font-semibold mb-1">Develops</p>
+              <p class="text-xs text-gray-400">Teamwork & physical wellness</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-base-200">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Get In Touch</h2>
+  <!-- Premium Contact Section -->
+  <section id="contact" class="py-24 section-dark relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-12 md:mb-16 px-4">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-gradient">Let's Work Together</h2>
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Have a project in mind or just want to chat? I'm always open to discussing new opportunities and creative ideas.
+        </p>
+      </div>
       
-      <div class="max-w-2xl mx-auto">
-        <!-- Contact Info -->
-        <div class="text-center mb-8">
-          <p class="text-lg mb-4">
-            <span class="font-semibold">Email:</span> 
-            <a href="mailto:hutchiejn@gmail.com" class="link link-primary">hutchiejn@gmail.com</a>
-          </p>
-          
-          <!-- Social Links -->
-          <div class="flex justify-center gap-4">
-            <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+      <!-- Contact Cards -->
+      <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-4">
+        
+        <!-- Email Card -->
+        <div class="glass-card group hover:scale-105 transition-transform">
+          <div class="flex items-center gap-3 mb-4 md:mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 md:w-7 md:h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white">Email Me</h3>
+          </div>
+          <p class="text-sm md:text-base text-gray-400 mb-3 md:mb-4">Drop me a line directly</p>
+          <a href="mailto:hutchiejn@gmail.com" class="group/link flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-xs md:text-sm font-medium break-all">
+            <span class="break-all">hutchiejn@gmail.com</span>
+            <svg class="w-4 h-4 md:w-5 md:h-5 group-hover/link:translate-x-1 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Response Time Card -->
+        <div class="glass-card group hover:scale-105 transition-transform">
+          <div class="flex items-center gap-3 mb-4 md:mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 md:w-7 md:h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white">Quick Response</h3>
+          </div>
+          <p class="text-sm md:text-base text-gray-400">I typically respond within 24 hours on business days</p>
+        </div>
+        
+        <!-- Availability Card -->
+        <div class="glass-card group hover:scale-105 transition-transform sm:col-span-2 lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4 md:mb-6">
+            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 md:w-7 md:h-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white">Available</h3>
+          </div>
+          <p class="text-sm md:text-base text-gray-400">Currently accepting new projects and collaborations</p>
+        </div>
+        
+      </div>
+      
+      <!-- Social Links Section -->
+      <div class="max-w-4xl mx-auto mt-8 md:mt-12 px-4">
+        <div class="glass-card text-center">
+          <h3 class="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Connect on Social Media</h3>
+          <div class="flex justify-center gap-4 md:gap-6">
+            <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-blue-500/20 transition-all glow-hover group" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-blue-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
-            <a href="https://github.com/[username]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-gray-500/20 transition-all glow-hover group" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </a>
-            <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" class="btn btn-circle btn-outline" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-blue-600/20 transition-all glow-hover group" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-blue-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-pink-600/20 transition-all glow-hover group" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-pink-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
           </div>
         </div>
-        
-        <!-- Static Contact Form -->
-        <form id="contact-form" class="card bg-base-100 shadow-xl">
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Name</span>
-              </label>
-              <input type="text" name="name" placeholder="Your name" class="input input-bordered w-full" required />
-            </div>
-            
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
-              </label>
-              <input type="email" name="email" placeholder="your.email@example.com" class="input input-bordered w-full" required />
-            </div>
-            
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Message</span>
-              </label>
-              <textarea name="message" class="textarea textarea-bordered h-32" placeholder="Your message" required></textarea>
-            </div>
-            
-            <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">Send Message</button>
-            </div>
-            
-            <p class="text-sm text-center text-base-content/70 mt-4">
-              Note: This is a static form. Please use the email address above to contact directly.
-            </p>
-          </div>
-        </form>
       </div>
+      
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer footer-center p-10 bg-base-300 text-base-content">
-    <div>
-      <p class="font-bold text-lg">Juby Neil Valiao</p>
-      <p>Thank you for visiting my portfolio!</p>
-    </div>
-    <div>
-      <div class="grid grid-flow-col gap-4">
-        <a href="https://linkedin.com/in/[profile]" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/[username]" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://facebook.com/[profile]" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-          </svg>
-        </a>
+  <!-- Premium Footer -->
+  <footer class="py-12 section-darker border-t border-white/10">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold mb-4 text-gradient">Juby Neil Valiao</h3>
+        <p class="text-gray-400 mb-6">Thank you for visiting my portfolio!</p>
+        
+        <div class="flex justify-center gap-6 mb-6">
+          <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-300 transition-colors" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="text-gray-500 text-sm">
+          <p>© 2025 Juby Neil Valiao. All rights reserved.</p>
+          <p class="mt-2 text-mono">Crafted with ❤️ using modern web technologies</p>
+        </div>
       </div>
-    </div>
-    <div>
-      <p>Copyright © 2025 - All rights reserved</p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Premium JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>
