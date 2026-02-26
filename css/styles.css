@@ -409,7 +409,7 @@ body {
   position: absolute;
   inset: -4px;
   background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow), var(--primary-glow));
-  border-radius: 50%;
+  border-radius: 1.75rem; /* rounded-3xl equivalent */
   z-index: -1;
   animation: spin-slow 8s linear infinite;
 }
@@ -443,9 +443,61 @@ body {
     font-size: 1.5rem;
   }
   
-  .hero-premium .order-1,
+  /* Mobile hero image optimization - Image ABOVE text */
+  /* Force image to appear first on mobile */
+  .hero-premium .order-1 {
+    order: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem; /* Push image down from top */
+  }
+  
   .hero-premium .order-2 {
-    order: unset;
+    order: 2;
+  }
+  
+  /* Reduce profile image size on mobile - optimal 120px for small screens */
+  .hero-premium .aspect-square {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+  
+  /* Scale down floating social links on mobile */
+  .hero-premium .absolute.-bottom-10 {
+    bottom: -1.75rem;
+    transform: translateX(-50%) scale(0.8);
+  }
+  
+  /* Adjust decorative elements for mobile */
+  .hero-premium .floating .absolute {
+    display: none;
+  }
+  
+  /* Reduce glow effects on mobile for better performance */
+  .hero-premium .glow-border {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .hero-premium .aspect-square {
+    max-width: 110px;
+  }
+  
+  .hero-premium .absolute.-bottom-10 {
+    bottom: -1.5rem;
+    transform: translateX(-50%) scale(0.75);
+  }
+  
+  /* Further reduce glow effects on small screens for performance */
+  .hero-premium .glow-border {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Reduce spacing for compact layout */
+  .hero-premium .order-1 {
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem; /* Slightly less top margin on very small screens */
   }
 }
 
