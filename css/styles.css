@@ -447,17 +447,18 @@ body {
   /* Force image to appear first on mobile */
   .hero-premium .order-1 {
     order: 1;
-    margin-bottom: 1.5rem;
-    margin-top: 3rem; /* Push image down from top */
+    margin-bottom: 3.5rem; /* Space for social links */
+    margin-top: 0; /* No top margin */
   }
   
   .hero-premium .order-2 {
     order: 2;
+    margin-top: -8rem; /* Very aggressive negative margin to pull content extremely close to avatar */
   }
   
-  /* Reduce profile image size on mobile - optimal 120px for small screens */
+  /* Reduce profile image size on mobile - optimal 150px for small screens */
   .hero-premium .aspect-square {
-    max-width: 120px;
+    max-width: 150px;
     margin: 0 auto;
   }
   
@@ -481,7 +482,7 @@ body {
 /* Extra small mobile devices */
 @media (max-width: 480px) {
   .hero-premium .aspect-square {
-    max-width: 110px;
+    max-width: 140px;
   }
   
   .hero-premium .absolute.-bottom-10 {
@@ -496,8 +497,12 @@ body {
   
   /* Reduce spacing for compact layout */
   .hero-premium .order-1 {
-    margin-bottom: 1.25rem;
-    margin-top: 2.5rem; /* Slightly less top margin on very small screens */
+    margin-bottom: 3rem; /* Space for social links */
+    margin-top: 0; /* No top margin */
+  }
+  
+  .hero-premium .order-2 {
+    margin-top: -8rem; /* Very aggressive negative margin for extra small screens */
   }
 }
 
