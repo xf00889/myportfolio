@@ -24,22 +24,15 @@
       <div class="flex items-center justify-between w-full py-3">
         <!-- Left: Hamburger + Logo -->
         <div class="flex items-center gap-2">
-          <!-- Mobile Hamburger Menu -->
-          <div class="dropdown">
-            <label tabindex="0" class="btn btn-ghost lg:hidden text-white p-2 min-h-0 h-auto">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </label>
-            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 glass rounded-box w-52">
-              <li><a href="#hero" class="text-white hover:text-blue-400">Home</a></li>
-              <li><a href="#experience" class="text-white hover:text-blue-400">Experience</a></li>
-              <li><a href="#education" class="text-white hover:text-blue-400">Education</a></li>
-              <li><a href="#projects" class="text-white hover:text-blue-400">Projects</a></li>
-              <li><a href="#hobbies" class="text-white hover:text-blue-400">Hobbies</a></li>
-              <li><a href="#contact" class="text-white hover:text-blue-400">Contact</a></li>
-            </ul>
-          </div>
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobile-menu-toggle" class="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors" aria-label="Toggle menu">
+            <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
           <!-- Logo/Name -->
           <a href="#hero" class="text-base sm:text-lg md:text-xl font-bold text-gradient text-premium whitespace-nowrap">Juby Neil Valiao</a>
         </div>
@@ -58,6 +51,71 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+  </div>
+
+  <!-- Mobile Menu Sidebar -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-out lg:hidden">
+    <div class="flex flex-col h-full">
+      <!-- Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-white/10">
+        <h2 class="text-xl font-bold text-white">Navigation</h2>
+        <button id="mobile-menu-close" class="text-white p-2 hover:bg-white/10 rounded-lg transition-colors" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Menu Items -->
+      <nav class="flex-1 overflow-y-auto py-8">
+        <ul class="space-y-2 px-6">
+          <li>
+            <a href="#hero" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#experience" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Experience
+            </a>
+          </li>
+          <li>
+            <a href="#education" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Education
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#hobbies" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Hobbies
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Menu Footer -->
+      <div class="p-6 border-t border-white/10">
+        <a href="assets/pdf/resume.pdf" download class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white/5 hover:bg-white/10 text-white rounded-lg font-medium transition-all border border-white/10">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Download Resume</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Premium Hero Section -->
   <section id="hero" class="hero-premium flex items-center justify-center relative overflow-hidden">
@@ -254,9 +312,7 @@
               
               <!-- Company & Location -->
               <div class="flex flex-wrap items-center gap-3 mb-6">
-                <div class="flex items-center gap-2">
-                  <span class="text-blue-400 font-semibold text-xl">Freelance</span>
-                </div>
+                <span class="text-blue-400 font-semibold text-xl">Freelance</span>
                 <span class="glass px-3 py-1.5 rounded-full text-sm text-cyan-400 border border-cyan-400/30 font-medium">
                   Remote
                 </span>
@@ -361,9 +417,7 @@
               
               <!-- Company & Location -->
               <div class="flex flex-wrap items-center gap-3 mb-6">
-                <div class="flex items-center gap-2">
-                  <span class="text-blue-400 font-semibold text-xl">NORSU-BSC</span>
-                </div>
+                <span class="text-blue-400 font-semibold text-xl">NORSU-BSC</span>
                 <span class="glass px-3 py-1.5 rounded-full text-sm text-orange-400 border border-orange-400/30 font-medium">
                   On-site
                 </span>

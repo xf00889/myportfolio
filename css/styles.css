@@ -1032,3 +1032,302 @@ body {
     flex-direction: column;
   }
 }
+
+/* Scroll Indicator Mobile Fix */
+.hero-premium > .absolute.bottom-8 {
+  bottom: 2rem;
+  z-index: 10;
+}
+
+/* Hide scroll indicator on mobile to prevent overlap */
+@media (max-width: 1023px) {
+  .hero-premium > .absolute.bottom-8 {
+    display: none;
+  }
+}
+
+/* Show on larger screens */
+@media (min-width: 1024px) {
+  .hero-premium > .absolute.bottom-8 {
+    display: block;
+  }
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+}
+
+#mobile-menu.menu-open {
+  transform: translateX(0);
+}
+
+#mobile-menu-overlay.overlay-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile menu link styling - consistent with desktop */
+.mobile-menu-link {
+  position: relative;
+  border-radius: 8px;
+}
+
+.mobile-menu-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu-link:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Mobile menu animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   MOBILE TYPOGRAPHY & SPACING OPTIMIZATION
+   ============================================ */
+
+/* Mobile-first responsive typography */
+@media (max-width: 768px) {
+  /* Base font size reduction for tighter layout */
+  html {
+    font-size: 14px;
+  }
+  
+  /* Hero section typography */
+  #hero h1 {
+    font-size: 1.75rem !important; /* ~24.5px */
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  
+  #hero h1 .block {
+    font-size: 2rem !important; /* ~28px - main headline */
+  }
+  
+  #hero p {
+    font-size: 0.875rem !important; /* ~12.25px */
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Reduce stats/highlights */
+  #hero .text-xl,
+  #hero .text-2xl {
+    font-size: 1.25rem !important; /* ~17.5px */
+  }
+  
+  #hero .text-xs {
+    font-size: 0.625rem !important; /* ~8.75px */
+  }
+  
+  /* Tech stack pills - smaller */
+  #hero .glass.px-2 {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.625rem !important; /* ~8.75px */
+  }
+  
+  /* CTA buttons - compact */
+  #hero .btn-premium,
+  #hero .btn-outline-premium {
+    padding: 0.625rem 1rem !important;
+    font-size: 0.875rem !important; /* ~12.25px */
+  }
+  
+  /* Secondary action - smaller */
+  #hero a[download] {
+    font-size: 0.75rem !important; /* ~10.5px */
+  }
+  
+  /* Section headings */
+  section h2 {
+    font-size: 2rem !important; /* ~28px */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Experience cards */
+  .experience-card h3 {
+    font-size: 1.5rem !important; /* ~21px */
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  
+  .experience-card .text-xl {
+    font-size: 1rem !important; /* ~14px */
+  }
+  
+  .experience-card .text-lg {
+    font-size: 0.875rem !important; /* ~12.25px */
+    line-height: 1.6;
+  }
+  
+  .experience-card .text-sm {
+    font-size: 0.75rem !important; /* ~10.5px */
+  }
+  
+  .experience-card p {
+    font-size: 0.875rem !important; /* ~12.25px */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  /* Date badges */
+  .experience-card .inline-flex {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.75rem !important; /* ~10.5px */
+  }
+  
+  /* Company badges */
+  .experience-card .glass.px-3 {
+    padding: 0.375rem 0.625rem !important;
+    font-size: 0.75rem !important; /* ~10.5px */
+  }
+  
+  /* Achievement items */
+  .experience-card .space-y-3 > div {
+    padding: 0.625rem 0.75rem !important;
+  }
+  
+  .experience-card .space-y-3 span {
+    font-size: 0.8125rem !important; /* ~11.375px */
+    line-height: 1.5;
+  }
+  
+  /* Tech stack badges */
+  .experience-card span[class*="bg-"] {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.6875rem !important; /* ~9.625px */
+  }
+  
+  /* Education cards */
+  .education-card h3 {
+    font-size: 1.375rem !important; /* ~19.25px */
+    line-height: 1.2;
+  }
+  
+  .education-card .text-lg {
+    font-size: 0.875rem !important; /* ~12.25px */
+  }
+  
+  .education-card p {
+    font-size: 0.8125rem !important; /* ~11.375px */
+    line-height: 1.5;
+  }
+  
+  /* Project cards */
+  #projects .glass-card h3 {
+    font-size: 1.375rem !important; /* ~19.25px */
+    line-height: 1.2;
+  }
+  
+  #projects .glass-card p {
+    font-size: 0.8125rem !important; /* ~11.375px */
+    line-height: 1.6;
+  }
+  
+  #projects .glass-card .text-sm {
+    font-size: 0.75rem !important; /* ~10.5px */
+  }
+  
+  /* Reduce padding and margins for tighter layout */
+  .experience-card,
+  .education-card,
+  #projects .glass-card {
+    padding: 1.25rem !important;
+  }
+  
+  /* Section spacing */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Container padding */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Reduce gaps */
+  .gap-8 {
+    gap: 1.25rem !important;
+  }
+  
+  .gap-6 {
+    gap: 1rem !important;
+  }
+  
+  .gap-4 {
+    gap: 0.75rem !important;
+  }
+  
+  .gap-3 {
+    gap: 0.5rem !important;
+  }
+  
+  /* Reduce margins */
+  .mb-8 {
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Extra small devices - even tighter */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  #hero h1 {
+    font-size: 1.5rem !important; /* ~19.5px */
+  }
+  
+  #hero h1 .block {
+    font-size: 1.75rem !important; /* ~22.75px */
+  }
+  
+  section h2 {
+    font-size: 1.75rem !important; /* ~22.75px */
+  }
+  
+  .experience-card,
+  .education-card,
+  #projects .glass-card {
+    padding: 1rem !important;
+  }
+  
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+}

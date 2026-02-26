@@ -93,7 +93,69 @@ function createParticles() {
 }
 
 // ============================================
-// 4. Premium Smooth Scroll with Offset
+// 4. Mobile Menu Implementation
+// ============================================
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const closeIcon = document.getElementById('close-icon');
+
+function openMobileMenu() {
+  mobileMenu.classList.add('menu-open');
+  mobileMenuOverlay.classList.add('overlay-open');
+  document.body.classList.add('menu-open');
+  hamburgerIcon.classList.add('hidden');
+  closeIcon.classList.remove('hidden');
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('menu-open');
+  mobileMenuOverlay.classList.remove('overlay-open');
+  document.body.classList.remove('menu-open');
+  hamburgerIcon.classList.remove('hidden');
+  closeIcon.classList.add('hidden');
+}
+
+// Toggle menu on button click
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('menu-open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+}
+
+// Close menu on close button click
+if (mobileMenuClose) {
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu on overlay click
+if (mobileMenuOverlay) {
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu when clicking on a link
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('menu-open')) {
+    closeMobileMenu();
+  }
+});
+
+// ============================================
+// 5. Premium Smooth Scroll with Offset
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -113,7 +175,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// 5. Premium Navbar with Glassmorphism
+// 6. Premium Navbar with Glassmorphism
 // ============================================
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
@@ -131,7 +193,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// 6. Advanced Scroll Reveal with Stagger
+// 7. Advanced Scroll Reveal with Stagger
 // ============================================
 const observerOptions = {
   threshold: 0.1,
@@ -164,7 +226,7 @@ document.querySelectorAll('.card, .glass-card, .card-premium').forEach((el, inde
 });
 
 // ============================================
-// 7. Typing Animation for Hero Text
+// 8. Typing Animation for Hero Text
 // ============================================
 function typeWriter(element, text, speed = 100) {
   let i = 0;
@@ -181,7 +243,7 @@ function typeWriter(element, text, speed = 100) {
 }
 
 // ============================================
-// 8. Premium Form Handler with Animation
+// 9. Premium Form Handler with Animation
 // ============================================
 const contactForm = document.querySelector('#contact-form');
 if (contactForm) {
@@ -213,7 +275,7 @@ if (contactForm) {
 }
 
 // ============================================
-// 9. Notification System
+// 10. Notification System
 // ============================================
 function showNotification(message, type = 'info') {
   const notification = document.createElement('div');
@@ -240,7 +302,7 @@ function showNotification(message, type = 'info') {
 }
 
 // ============================================
-// 10. Parallax Effect for Hero Section
+// 11. Parallax Effect for Hero Section
 // ============================================
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
@@ -251,7 +313,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// 11. Initialize Premium Features
+// 12. Initialize Premium Features
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
   // Create particles
@@ -283,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// 12. Performance Optimization
+// 13. Performance Optimization
 // ============================================
 // Throttle scroll events
 function throttle(func, wait) {
