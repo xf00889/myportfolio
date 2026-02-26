@@ -409,7 +409,7 @@ body {
   position: absolute;
   inset: -4px;
   background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow), var(--primary-glow));
-  border-radius: 1.75rem; /* rounded-3xl equivalent */
+  border-radius: 50%; /* Circular */
   z-index: -1;
   animation: spin-slow 8s linear infinite;
 }
