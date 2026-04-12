@@ -1,368 +1,342 @@
-// js/main.js - Premium Interactive Portfolio Enhancements
+/* ===== CANVAS NOISE BACKGROUND ===== */
+function initNoise() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, frame = 0;
 
-// ============================================
-// 1. Custom Cursor Implementation
-// ============================================
-const cursor = document.createElement('div');
-const cursorFollower = document.createElement('div');
-cursor.className = 'custom-cursor';
-cursorFollower.className = 'custom-cursor-follower';
-document.body.appendChild(cursor);
-document.body.appendChild(cursorFollower);
+  function resize() {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  function drawNoise() {
+    const imageData = ctx.createImageData(w, h);
+    const data = imageData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const v = Math.random() * 255;
+      data[i] = data[i+1] = data[i+2] = v;
+      data[i+3] = 18; // very subtle
+    }
+    ctx.putImageData(imageData, 0, 0);
+    frame++;
+    requestAnimationFrame(drawNoise);
+  }
+  drawNoise();
+}
+initNoise();
+
+/* ===== LIVE CLOCK ===== */
+function updateClock() {
+  const el = document.getElementById('hero-time');
+  if (!el) return;
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  el.textContent = `${h}:${m}:${s} PHT`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+/* ===== TEXT SCRAMBLE ===== */
+class TextScramble {
+  constructor(el) {
+    this.el = el;
+    this.chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+    this.update = this.update.bind(this);
+  }
+  setText(newText) {
+    const old = this.el.innerText;
+    const len = Math.max(old.length, newText.length);
+    const promise = new Promise(res => this.resolve = res);
+    this.queue = [];
+    for (let i = 0; i < len; i++) {
+      const from = old[i] || '';
+      const to = newText[i] || '';
+      const start = Math.floor(Math.random() * 12);
+      const end = start + Math.floor(Math.random() * 12);
+      this.queue.push({ from, to, start, end });
+    }
+    cancelAnimationFrame(this.frameReq);
+    this.frame = 0;
+    this.update();
+    return promise;
+  }
+  update() {
+    let output = '';
+    let complete = 0;
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i];
+      if (this.frame >= end) {
+        complete++;
+        output += to;
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.chars[Math.floor(Math.random() * this.chars.length)];
+          this.queue[i].char = char;
+        }
+        output += `<span class="scramble-char">${char}</span>`;
+      } else {
+        output += from;
+      }
+    }
+    this.el.innerHTML = output;
+    if (complete === this.queue.length) {
+      this.resolve();
+    } else {
+      this.frameReq = requestAnimationFrame(this.update);
+      this.frame++;
+    }
+  }
+}
+
+// Run scramble on headline words after slide-up animation
+setTimeout(() => {
+  document.querySelectorAll('[data-scramble]').forEach(el => {
+    const target = el.dataset.scramble;
+    const fx = new TextScramble(el);
+    fx.setText(target);
+  });
+}, 900);
+
+/* ===== 3D CARD TILT ===== */
+const heroCard = document.getElementById('hero-card');
+if (heroCard) {
+  heroCard.addEventListener('mousemove', (e) => {
+    const rect = heroCard.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const rotX = y * -18;
+    const rotY = x * 18;
+    heroCard.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03,1.03,1.03)`;
+    // Move glow with mouse
+    const glow = heroCard.querySelector('.card-glow');
+    if (glow) {
+      glow.style.background = `radial-gradient(circle at ${(x+0.5)*100}% ${(y+0.5)*100}%, rgba(99,102,241,0.3), transparent 60%)`;
+      glow.style.opacity = '1';
+    }
+  });
+  heroCard.addEventListener('mouseleave', () => {
+    heroCard.style.transform = '';
+    const glow = heroCard.querySelector('.card-glow');
+    if (glow) { glow.style.opacity = '0'; }
+  });
+}
+
+
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+const trail = document.getElementById('cursor-trail');
 
 let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
+let ringX = 0, ringY = 0;
+let trailX = 0, trailY = 0;
+let isVisible = false;
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
+
+  if (!isVisible) {
+    isVisible = true;
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+    trail.style.opacity = '0.4';
+  }
+
+  dot.style.left = mouseX + 'px';
+  dot.style.top = mouseY + 'px';
 });
 
-// Smooth follower animation
-function animateFollower() {
-  followerX += (mouseX - followerX) * 0.1;
-  followerY += (mouseY - followerY) * 0.1;
-  cursorFollower.style.left = followerX + 'px';
-  cursorFollower.style.top = followerY + 'px';
-  requestAnimationFrame(animateFollower);
-}
-animateFollower();
+document.addEventListener('mouseleave', () => {
+  dot.style.opacity = '0';
+  ring.style.opacity = '0';
+  trail.style.opacity = '0';
+  isVisible = false;
+});
 
-// Cursor hover effects
-document.querySelectorAll('a, button, .btn').forEach(el => {
+// Smooth ring & trail follow with lerp
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function animateCursor() {
+  ringX = lerp(ringX, mouseX, 0.12);
+  ringY = lerp(ringY, mouseY, 0.12);
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+
+  trailX = lerp(trailX, mouseX, 0.06);
+  trailY = lerp(trailY, mouseY, 0.06);
+  trail.style.left = trailX + 'px';
+  trail.style.top = trailY + 'px';
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor state changes
+document.querySelectorAll('[data-cursor="link"], a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-link'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-link'));
+});
+document.querySelectorAll('[data-cursor="button"]').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'scale(1.5)';
-    cursorFollower.style.transform = 'scale(1.5)';
+    document.body.classList.remove('cursor-link');
+    document.body.classList.add('cursor-button');
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'scale(1)';
-    cursorFollower.style.transform = 'scale(1)';
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-button'));
+});
+document.querySelectorAll('[data-cursor="image"]').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    document.body.classList.remove('cursor-link');
+    document.body.classList.add('cursor-image');
   });
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-image'));
+});
+document.querySelectorAll('[data-cursor="card"]').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    document.body.classList.remove('cursor-link');
+    document.body.classList.add('cursor-card');
+  });
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-card'));
 });
 
-// ============================================
-// 2. Loading Animation
-// ============================================
-window.addEventListener('load', () => {
-  const loadingBar = document.createElement('div');
-  loadingBar.className = 'loading-bar';
-  document.body.appendChild(loadingBar);
-  
-  setTimeout(() => {
-    loadingBar.style.transform = 'scaleX(1)';
-    setTimeout(() => {
-      loadingBar.style.opacity = '0';
-      setTimeout(() => loadingBar.remove(), 300);
-    }, 500);
-  }, 100);
+// Click ripple on cursor
+document.addEventListener('mousedown', () => {
+  ring.style.transform = 'translate(-50%, -50%) scale(0.8)';
+});
+document.addEventListener('mouseup', () => {
+  ring.style.transform = 'translate(-50%, -50%) scale(1)';
 });
 
-// ============================================
-// 3. Particle Background System
-// ============================================
-function createParticles() {
-  const heroSection = document.querySelector('#hero');
-  if (!heroSection) return;
-  
-  const particlesContainer = document.createElement('div');
-  particlesContainer.className = 'particles';
-  heroSection.appendChild(particlesContainer);
-  
-  function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
-    particle.style.animationDelay = Math.random() * 5 + 's';
-    particlesContainer.appendChild(particle);
-    
-    setTimeout(() => {
-      particle.remove();
-    }, 25000);
-  }
-  
-  // Create initial particles
-  for (let i = 0; i < 50; i++) {
-    setTimeout(createParticle, i * 100);
-  }
-  
-  // Continue creating particles
-  setInterval(createParticle, 500);
-}
+/* ===== MOBILE MENU ===== */
+const menuBtn = document.getElementById('menu-btn');
+const mobileNav = document.getElementById('mobile-nav');
 
-// ============================================
-// 4. Mobile Menu Implementation
-// ============================================
-const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-const mobileMenuClose = document.getElementById('mobile-menu-close');
-const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-const hamburgerIcon = document.getElementById('hamburger-icon');
-const closeIcon = document.getElementById('close-icon');
-
-function openMobileMenu() {
-  mobileMenu.classList.add('menu-open');
-  mobileMenuOverlay.classList.add('overlay-open');
-  document.body.classList.add('menu-open');
-  hamburgerIcon.classList.add('hidden');
-  closeIcon.classList.remove('hidden');
-}
-
-function closeMobileMenu() {
-  mobileMenu.classList.remove('menu-open');
-  mobileMenuOverlay.classList.remove('overlay-open');
-  document.body.classList.remove('menu-open');
-  hamburgerIcon.classList.remove('hidden');
-  closeIcon.classList.add('hidden');
-}
-
-// Toggle menu on button click
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', () => {
-    if (mobileMenu.classList.contains('menu-open')) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
-  });
-}
-
-// Close menu on close button click
-if (mobileMenuClose) {
-  mobileMenuClose.addEventListener('click', closeMobileMenu);
-}
-
-// Close menu on overlay click
-if (mobileMenuOverlay) {
-  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-}
-
-// Close menu when clicking on a link
-mobileMenuLinks.forEach(link => {
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+document.querySelectorAll('.mob-link').forEach(link => {
   link.addEventListener('click', () => {
-    closeMobileMenu();
+    menuBtn.classList.remove('open');
+    mobileNav.classList.remove('open');
   });
 });
 
-// Close menu on escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu.classList.contains('menu-open')) {
-    closeMobileMenu();
-  }
-});
-
-// ============================================
-// 5. Premium Smooth Scroll with Offset
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      const navbar = document.querySelector('.navbar');
-      const navbarHeight = navbar ? navbar.offsetHeight : 0;
-      const targetPosition = target.offsetTop - navbarHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// ============================================
-// 6. Premium Navbar with Glassmorphism
-// ============================================
-const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
-
+/* ===== NAVBAR SCROLL ===== */
+const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
-  if (currentScroll > 100) {
-    navbar.classList.add('navbar-shrink');
+  if (window.scrollY > 30) {
+    navbar.style.background = 'rgba(8,8,8,0.95)';
+    navbar.style.borderBottomColor = 'rgba(255,255,255,0.1)';
   } else {
-    navbar.classList.remove('navbar-shrink');
+    navbar.style.background = 'rgba(8,8,8,0.8)';
+    navbar.style.borderBottomColor = 'rgba(255,255,255,0.07)';
   }
-  
-  lastScroll = currentScroll;
-});
+}, { passive: true });
 
-// ============================================
-// 7. Advanced Scroll Reveal with Stagger
-// ============================================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
+/* ===== ACTIVE NAV LINK ===== */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('active');
-      }, index * 100); // Stagger animation
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
     }
   });
-}, observerOptions);
+}, { threshold: 0.45 });
 
-// Observe elements with different reveal types
-document.querySelectorAll('section').forEach(el => {
-  el.classList.add('scroll-reveal');
-  observer.observe(el);
-});
+sections.forEach(s => sectionObserver.observe(s));
 
-document.querySelectorAll('.card, .glass-card, .card-premium').forEach((el, index) => {
-  if (index % 2 === 0) {
-    el.classList.add('scroll-reveal-left');
-  } else {
-    el.classList.add('scroll-reveal-right');
-  }
-  observer.observe(el);
-});
+/* ===== SCROLL REVEAL ===== */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
-// ============================================
-// 8. Typing Animation for Hero Text
-// ============================================
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.innerHTML = '';
-  
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
-  }
-  type();
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ===== COUNTER ANIMATION ===== */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = target === 100 ? '%' : '+';
+  const duration = 1800;
+  const steps = 60;
+  const increment = target / steps;
+  let current = 0;
+  let frame = 0;
+
+  const timer = setInterval(() => {
+    frame++;
+    // Ease out
+    const progress = frame / steps;
+    const eased = 1 - Math.pow(1 - progress, 3);
+    current = Math.round(target * eased);
+
+    el.textContent = current + (frame >= steps ? suffix : '');
+    if (frame >= steps) {
+      el.textContent = target + suffix;
+      clearInterval(timer);
+    }
+  }, duration / steps);
 }
 
-// ============================================
-// 9. Premium Form Handler with Animation
-// ============================================
-const contactForm = document.querySelector('#contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+const statsGrid = document.querySelector('.stats-grid');
+if (statsGrid) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-num').forEach((el, i) => {
+          setTimeout(() => animateCounter(el), i * 150);
+        });
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counterObserver.observe(statsGrid);
+}
+
+/* ===== CONTACT FORM ===== */
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Add loading state
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    // Simulate form processing
+    const btn = form.querySelector('button[type="submit"]');
+    const span = btn.querySelector('span');
+    const originalText = span.textContent;
+    span.textContent = 'Message Sent!';
+    btn.style.background = '#22c55e';
+    btn.style.boxShadow = '0 12px 28px rgba(34,197,94,0.3)';
     setTimeout(() => {
-      submitBtn.textContent = 'Message Sent!';
-      submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-      
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        submitBtn.style.background = '';
-        contactForm.reset();
-        
-        // Show notification
-        showNotification('This is a static form. Please email directly to hutchiejn@gmail.com');
-      }, 2000);
-    }, 1500);
+      span.textContent = originalText;
+      btn.style.background = '';
+      btn.style.boxShadow = '';
+      form.reset();
+    }, 3500);
   });
 }
 
-// ============================================
-// 10. Notification System
-// ============================================
-function showNotification(message, type = 'info') {
-  const notification = document.createElement('div');
-  notification.className = `fixed top-4 right-4 p-4 rounded-lg glass z-50 transform translate-x-full transition-transform duration-300`;
-  notification.style.background = 'rgba(59, 130, 246, 0.1)';
-  notification.style.border = '1px solid rgba(59, 130, 246, 0.3)';
-  notification.innerHTML = `
-    <div class="flex items-center space-x-2">
-      <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-      <span class="text-white">${message}</span>
-    </div>
-  `;
-  
-  document.body.appendChild(notification);
-  
-  setTimeout(() => {
-    notification.style.transform = 'translateX(0)';
-  }, 100);
-  
-  setTimeout(() => {
-    notification.style.transform = 'translateX(full)';
-    setTimeout(() => notification.remove(), 300);
-  }, 5000);
-}
-
-// ============================================
-// 11. Parallax Effect for Hero Section
-// ============================================
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const hero = document.querySelector('#hero');
-  if (hero) {
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-  }
+/* ===== MAGNETIC BUTTONS ===== */
+document.querySelectorAll('.btn-primary, .btn-ghost, .nav-cta').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) translateY(-2px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
 });
-
-// ============================================
-// 12. Initialize Premium Features
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-  // Create particles
-  createParticles();
-  
-  // Add premium classes to existing elements
-  document.querySelectorAll('.navbar').forEach(el => {
-    el.classList.add('navbar-premium');
-  });
-  
-  document.querySelectorAll('.card').forEach(el => {
-    el.classList.add('glass-card');
-  });
-  
-  // Initialize typing animation for hero subtitle
-  const heroSubtitle = document.querySelector('#hero p');
-  if (heroSubtitle) {
-    const originalText = heroSubtitle.textContent;
-    setTimeout(() => {
-      typeWriter(heroSubtitle, originalText, 50);
-    }, 1000);
-  }
-  
-  // Add floating animation to profile picture
-  const profilePic = document.querySelector('.avatar');
-  if (profilePic) {
-    profilePic.classList.add('floating');
-  }
-});
-
-// ============================================
-// 13. Performance Optimization
-// ============================================
-// Throttle scroll events
-function throttle(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Apply throttling to scroll events
-const throttledScroll = throttle(() => {
-  // Scroll-based animations here
-}, 16); // ~60fps
-
-window.addEventListener('scroll', throttledScroll);

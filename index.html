@@ -1,1323 +1,466 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio website of Juby Neil Valiao - Web Developer specializing in Python, Django, PHP, Laravel, and JavaScript">
-  <meta name="author" content="Juby Neil Valiao">
-  <title>Juby Neil Valiao - Web Developer Portfolio</title>
-  
-  <!-- Premium Google Fonts -->
+  <meta name="description" content="Juby Neil Valiao - Full Stack Web Developer">
+  <title>Juby Neil Valiao — Web Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- TailwindCSS + Custom Premium Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="css/output.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-sans bg-black text-white">
-  
-  <!-- Premium Navigation Bar -->
-  <nav id="navbar" class="navbar navbar-premium fixed top-0 z-50 transition-all duration-300 w-full">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between w-full py-3">
-        <!-- Left: Hamburger + Logo -->
-        <div class="flex items-center gap-2">
-          <!-- Mobile Hamburger Menu Button -->
-          <button id="mobile-menu-toggle" class="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors" aria-label="Toggle menu">
-            <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <!-- Logo/Name -->
-          <a href="#hero" class="text-base sm:text-lg md:text-xl font-bold text-gradient text-premium whitespace-nowrap">Juby Neil Valiao</a>
-        </div>
-        
-        <!-- Right: Desktop Menu -->
-        <div class="hidden lg:flex">
-          <ul class="menu menu-horizontal px-1 space-x-2">
-            <li><a href="#hero" class="text-white hover:text-blue-400 transition-colors">Home</a></li>
-            <li><a href="#experience" class="text-white hover:text-blue-400 transition-colors">Experience</a></li>
-            <li><a href="#education" class="text-white hover:text-blue-400 transition-colors">Education</a></li>
-            <li><a href="#projects" class="text-white hover:text-blue-400 transition-colors">Projects</a></li>
-            <li><a href="#hobbies" class="text-white hover:text-blue-400 transition-colors">Hobbies</a></li>
-            <li><a href="#contact" class="text-white hover:text-blue-400 transition-colors">Contact</a></li>
-          </ul>
-        </div>
-      </div>
+<body>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <div id="cursor-trail"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">JNV<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" data-cursor="link">Home</a></li>
+        <li><a href="#about" data-cursor="link">About</a></li>
+        <li><a href="#experience" data-cursor="link">Experience</a></li>
+        <li><a href="#education" data-cursor="link">Education</a></li>
+        <li><a href="#projects" data-cursor="link">Projects</a></li>
+        <li><a href="#hobbies" data-cursor="link">Hobbies</a></li>
+        <li><a href="#contact" data-cursor="link">Contact</a></li>
+      </ul>
+      <a href="assets/pdf/resume.pdf" download class="nav-cta" data-cursor="button">Download CV</a>
+      <button id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div id="mobile-nav">
+      <ul>
+        <li><a href="#home" class="mob-link">Home</a></li>
+        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#experience" class="mob-link">Experience</a></li>
+        <li><a href="#education" class="mob-link">Education</a></li>
+        <li><a href="#projects" class="mob-link">Projects</a></li>
+        <li><a href="#hobbies" class="mob-link">Hobbies</a></li>
+        <li><a href="#contact" class="mob-link">Contact</a></li>
+        <li><a href="assets/pdf/resume.pdf" download class="mob-link mob-cv">Download CV</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
-  </div>
-
-  <!-- Mobile Menu Sidebar -->
-  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 ease-out lg:hidden">
-    <div class="flex flex-col h-full">
-      <!-- Menu Header -->
-      <div class="flex items-center justify-between p-6 border-b border-white/10">
-        <h2 class="text-xl font-bold text-white">Navigation</h2>
-        <button id="mobile-menu-close" class="text-white p-2 hover:bg-white/10 rounded-lg transition-colors" aria-label="Close menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Menu Items -->
-      <nav class="flex-1 overflow-y-auto py-8">
-        <ul class="space-y-2 px-6">
-          <li>
-            <a href="#hero" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#experience" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Experience
-            </a>
-          </li>
-          <li>
-            <a href="#education" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Education
-            </a>
-          </li>
-          <li>
-            <a href="#projects" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#hobbies" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Hobbies
-            </a>
-          </li>
-          <li>
-            <a href="#contact" class="mobile-menu-link block px-4 py-3 text-white hover:text-blue-400 transition-colors text-lg">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-      
-      <!-- Menu Footer -->
-      <div class="p-6 border-t border-white/10">
-        <a href="assets/pdf/resume.pdf" download class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white/5 hover:bg-white/10 text-white rounded-lg font-medium transition-all border border-white/10">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span>Download Resume</span>
-        </a>
-      </div>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-meta">
+      <div class="meta-left"><span class="meta-dot"></span><span class="meta-text">Available for freelance</span></div>
+      <div class="meta-right"><span class="meta-loc">📍 Philippines</span><span class="meta-time" id="hero-time">--:--</span></div>
     </div>
-  </div>
-
-  <!-- Premium Hero Section -->
-  <section id="hero" class="hero-premium flex items-center justify-center relative overflow-hidden">
-    <!-- Enhanced Background Effects -->
-    <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-12 md:py-16">
-        
-        <!-- Left Column - Hero Content -->
-        <div class="order-2 lg:order-1 text-center lg:text-left space-y-4 md:space-y-5 mobile-hero-content">
-          
-          <!-- Main Headline - Value Proposition First -->
-          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-            <span class="text-white">Building</span>
-            <span class="text-gradient glow-text block">Modern Web Solutions</span>
-            <span class="text-white">That Drive Results</span>
-          </h1>
-          
-          <!-- Subheadline with Name & Role -->
-          <div>
-            <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-1">
-              Hi, I'm <span class="text-blue-400 font-semibold">Juby Neil Valiao</span>
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-400">
-              Full-Stack Developer specializing in Python, Django, PHP & Laravel
-            </p>
-          </div>
-          
-          <!-- Value Statement -->
-          <p class="text-xs sm:text-sm md:text-base text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed px-4 lg:px-0">
-            I transform complex business requirements into elegant, scalable web applications. 
-            From concept to deployment, I deliver solutions that exceed expectations.
-          </p>
-          
-          <!-- Key Stats/Highlights -->
-          <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
-            <div class="text-center lg:text-left">
-              <div class="text-xl sm:text-2xl font-bold text-gradient">5+</div>
-              <div class="text-xs text-gray-400">Technologies</div>
-            </div>
-            <div class="w-px bg-white/10"></div>
-            <div class="text-center lg:text-left">
-              <div class="text-xl sm:text-2xl font-bold text-gradient">24h</div>
-              <div class="text-xs text-gray-400">Response Time</div>
-            </div>
-            <div class="w-px bg-white/10"></div>
-            <div class="text-center lg:text-left">
-              <div class="text-xl sm:text-2xl font-bold text-gradient">100%</div>
-              <div class="text-xs text-gray-400">Commitment</div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack Pills - Compact -->
-          <div class="flex flex-wrap justify-center lg:justify-start gap-1.5 sm:gap-2 px-4 lg:px-0">
-            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-blue-400 border border-blue-400/30 flex items-center gap-1.5">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>
-              Python
-            </span>
-            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-purple-400 border border-purple-400/30 flex items-center gap-1.5">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-              Django
-            </span>
-            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-cyan-400 border border-cyan-400/30 flex items-center gap-1.5">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zm-.921-5.063h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174h-1.092l-.704 3.625h-1.367l1.229-6.327zM19.097 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29z"/></svg>
-              PHP
-            </span>
-            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-green-400 border border-green-400/30 flex items-center gap-1.5">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z"/></svg>
-              Laravel
-            </span>
-            <span class="glass px-2 sm:px-2.5 py-1 rounded-full text-xs text-yellow-400 border border-yellow-400/30 flex items-center gap-1.5">
-              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-              JavaScript
-            </span>
-          </div>
-          
-          <!-- CTA Buttons - Clear Hierarchy -->
-          <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 px-4 lg:px-0">
-            <a href="#projects" class="btn-premium px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white group">
-              <span>View My Work</span>
-            </a>
-            <a href="#contact" class="btn-outline-premium px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold group">
-              <span>Let's Talk</span>
-            </a>
-          </div>
-          
-          <!-- Secondary Action -->
-          <div class="flex justify-center lg:justify-start">
-            <a href="assets/pdf/resume.pdf" download class="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span class="group-hover:underline">Download Resume</span>
-            </a>
-          </div>
-          
+    <div class="hero-layout">
+      <div class="hero-typo">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">Full Stack Developer</span>
         </div>
+        <h1 class="hero-headline">
+          <span class="hl-row hl-row-1"><span class="hl-word" data-scramble="JUBY">JUBY</span></span>
+          <span class="hl-row hl-row-2"><span class="hl-word" data-scramble="NEIL">NEIL</span><span class="hl-outline" data-scramble="VALIAO">VALIAO</span></span>
+        </h1>
+        <div class="hero-sub">
+          <p class="hero-desc">I craft modern, scalable web applications — Python, Django, PHP, Laravel &amp; JavaScript.</p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn-primary" data-cursor="button"><span>See My Work</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="#contact" class="btn-ghost" data-cursor="button">Let's Talk</a>
+          </div>
+        </div>
+        <div class="hero-ticker">
+          <div class="ticker-track">
+            <span><i class="devicon-python-plain colored"></i>Python</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-django-plain colored"></i>Django</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-php-plain colored"></i>PHP</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-laravel-plain colored"></i>Laravel</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-javascript-plain colored"></i>JavaScript</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-mysql-plain colored"></i>MySQL</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-tailwindcss-plain colored"></i>Tailwind CSS</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-git-plain colored"></i>Git</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-python-plain colored"></i>Python</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-django-plain colored"></i>Django</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-php-plain colored"></i>PHP</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-laravel-plain colored"></i>Laravel</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-javascript-plain colored"></i>JavaScript</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-mysql-plain colored"></i>MySQL</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-tailwindcss-plain colored"></i>Tailwind CSS</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-git-plain colored"></i>Git</span><span class="ticker-sep">✦</span>
+            <span><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span><span class="ticker-sep">✦</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card" id="hero-card" data-cursor="image">
+          <div class="card-inner">
+            <div class="card-img-wrap">
+              <img src="assets/img/profile.png" alt="Juby Neil Valiao" class="card-img">
+              <div class="card-img-overlay"></div>
+            </div>
+            <div class="card-info">
+              <div class="card-name">Juby Neil Valiao</div>
+              <div class="card-role">Full Stack Developer</div>
+              <div class="card-status"><span class="status-pulse"></span>Open to work</div>
+            </div>
+            <div class="chip chip-1"><span class="chip-num">4+</span><span class="chip-lbl">Projects</span></div>
+            <div class="chip chip-2"><span class="chip-num">1+</span><span class="chip-lbl">Yr Exp</span></div>
+            <div class="chip chip-3"><span class="chip-num">5+</span><span class="chip-lbl">Tech Stack</span></div>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="card-socials">
+          <a href="https://github.com/xf00889" target="_blank" rel="noopener" aria-label="GitHub" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+          <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" aria-label="Facebook" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+          <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" aria-label="Instagram" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="assets/pdf/resume.pdf" download aria-label="Download CV" data-cursor="link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll down"><span class="scroll-text">scroll</span><span class="scroll-line"></span></a>
+  </section>
 
-        <!-- Right Column - Profile Image -->
-        <div class="flex order-1 lg:order-2 justify-center lg:justify-end mb-8 lg:mb-0 mobile-hero-image">
-          <div class="relative">
-            <!-- Profile Picture with Premium Styling -->
-            <div class="w-[150px] sm:w-[180px] md:w-[220px] lg:w-[380px] xl:w-[420px] aspect-square">
-              <div class="w-full h-full rounded-full glow-border floating relative overflow-hidden">
-                <img src="assets/img/profile.png" alt="Juby Neil Valiao - Full Stack Developer" class="w-full h-full object-cover rounded-full" />
-                
-                <!-- Glassmorphism overlay effect -->
-                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10"></div>
-                
-                <!-- Animated border ring -->
-                <div class="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 animate-spin-slow" style="animation-duration: 8s;"></div>
-                <div class="absolute inset-1 rounded-full bg-black"></div>
-                <div class="absolute inset-1 rounded-full overflow-hidden">
-                  <img src="assets/img/profile.png" alt="Juby Neil Valiao - Full Stack Developer" class="w-full h-full object-cover rounded-full" />
-                </div>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+
+      <!-- Experience hero block -->
+      <div class="about-exp-hero reveal">
+        <div class="exp-num-block">
+          <span class="exp-big-num">01</span>
+          <span class="exp-years-label">Y e a r s</span>
+        </div>
+        <div class="exp-desc-block">
+          <p class="exp-desc-text">of working experience as a<br><strong>Full Stack Web Developer</strong></p>
+        </div>
+      </div>
+
+      <!-- Main about grid -->
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left">
+          <div class="about-img-frame">
+            <img src="assets/img/profile.png" alt="Juby Neil Valiao" class="about-img" data-cursor="image">
+            <div class="img-noise"></div>
+          </div>
+          <div class="about-badge"><span class="dot-pulse"></span><span>Open to opportunities</span></div>
+        </div>
+        <div class="about-text reveal-right">
+          <p class="section-tag">About Me</p>
+          <h2 class="section-title">Passionate about building things that matter</h2>
+          <p>I'm a Full Stack Developer based in the Philippines, specializing in Python/Django and PHP/Laravel. I love turning complex problems into simple, beautiful, and intuitive solutions.</p>
+          <p>My journey started with curiosity about how websites work, and grew into a passion for crafting full-stack applications — from database design to polished front-end interfaces.</p>
+          <div class="skills-list">
+            <div class="skill-group">
+              <h4>Backend</h4>
+              <div class="skill-tags">
+                <span data-cursor="link"><i class="devicon-python-plain colored"></i>Python</span>
+                <span data-cursor="link"><i class="devicon-django-plain colored"></i>Django</span>
+                <span data-cursor="link"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span data-cursor="link"><i class="devicon-laravel-plain colored"></i>Laravel</span>
               </div>
             </div>
-            
-            <!-- Floating Social Links -->
-            <div class="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex gap-2">
-              <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-blue-500/20 transition-all glow-hover group" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
+            <div class="skill-group">
+              <h4>Frontend</h4>
+              <div class="skill-tags">
+                <span data-cursor="link"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                <span data-cursor="link"><i class="devicon-html5-plain colored"></i>HTML/CSS</span>
+                <span data-cursor="link"><i class="devicon-tailwindcss-plain colored"></i>Tailwind</span>
+                <span data-cursor="link"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h4>Tools &amp; DB</h4>
+              <div class="skill-tags">
+                <span data-cursor="link"><i class="devicon-git-plain colored"></i>Git</span>
+                <span data-cursor="link"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span data-cursor="link"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+                <span data-cursor="link"><i class="devicon-postman-plain colored"></i>REST APIs</span>
+              </div>
+            </div>
+          </div>
+          <a href="assets/pdf/resume.pdf" download class="btn-primary" data-cursor="button">
+            <span>Download Resume</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="sh-num-block">
+          <span class="sh-big-num">02</span>
+          <span class="sh-label">M y &nbsp; J o u r n e y</span>
+        </div>
+        <div class="sh-title-block">
+          <p class="section-tag">Experience</p>
+          <h2 class="section-title">Where I've been<br><strong>and what I've built</strong></h2>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">Feb 2025 – Present</span>
+            <h3>Full Stack Developer</h3>
+            <p class="timeline-company">Freelance <span class="badge badge-green">Active</span> <span class="badge badge-blue">Remote</span></p>
+            <p>Developing modern web applications using Python, Django, PHP, Laravel, and JavaScript. Building full-stack solutions from concept to deployment.</p>
+            <div class="timeline-tags">
+              <span><i class="devicon-python-plain colored"></i>Python</span>
+              <span><i class="devicon-django-plain colored"></i>Django</span>
+              <span><i class="devicon-php-plain colored"></i>PHP</span>
+              <span><i class="devicon-laravel-plain colored"></i>Laravel</span>
+              <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">July 2024 – March 2025</span>
+            <h3>Intern Developer</h3>
+            <p class="timeline-company">NORSU-BSC <span class="badge badge-gray">Completed</span> <span class="badge badge-orange">On-site</span></p>
+            <p>Gained hands-on experience in software development, database management, and system administration. Contributed to university web systems.</p>
+            <div class="timeline-tags">
+              <span><i class="devicon-php-plain colored"></i>PHP</span>
+              <span><i class="devicon-laravel-plain colored"></i>Laravel</span>
+              <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">2020 – 2025</span>
+            <h3>BS Information Technology</h3>
+            <p class="timeline-company">Negros Oriental State University <span class="badge badge-cyan">Graduated</span></p>
+            <p>Completed a Bachelor of Science in Information Technology with focus on software development, database systems, and web technologies.</p>
+            <div class="timeline-tags">
+              <span><i class="devicon-html5-plain colored"></i>Web Development</span>
+              <span><i class="devicon-mysql-plain colored"></i>Database Systems</span>
+              <span><i class="devicon-git-plain colored"></i>Software Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="sh-num-block">
+          <span class="sh-big-num">03</span>
+          <span class="sh-label">A c a d e m i c s</span>
+        </div>
+        <div class="sh-title-block">
+          <p class="section-tag">Education</p>
+          <h2 class="section-title">My academic<br><strong>background</strong></h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">2020 – 2025</span>
+            <h3>B.S. in Information Technology</h3>
+            <p class="timeline-company">NORSU-BSC <span class="badge badge-cyan">Graduated</span></p>
+            <p>Completed a Bachelor of Science in Information Technology with focus on software development, database systems, and web technologies.</p>
+            <div class="timeline-tags">
+              <span><i class="devicon-python-plain colored"></i>Python</span>
+              <span><i class="devicon-php-plain colored"></i>PHP</span>
+              <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              <span><i class="devicon-html5-plain colored"></i>HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">2016 – 2018</span>
+            <h3>General Academic Strand</h3>
+            <p class="timeline-company">Miguel L. Daclan National High School <span class="badge badge-green">With Honors</span></p>
+            <p>Completed Senior High School under the General Academic Strand, building strong foundations in academics and critical thinking.</p>
+            <div class="timeline-tags">
+              <span>Senior High School</span>
+              <span>General Academic Strand</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">2012 – 2016</span>
+            <h3>Junior High School</h3>
+            <p class="timeline-company">Vicente Z. Badon Campus <span class="badge badge-blue">With Honors</span></p>
+            <p>Completed Junior High School with honors, demonstrating consistent academic excellence throughout secondary education.</p>
+            <div class="timeline-tags">
+              <span>Junior High School</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card" data-cursor="card">
+            <span class="timeline-date">2008 – 2012</span>
+            <h3>Elementary Education</h3>
+            <p class="timeline-company">Bongalonan Elementary School <span class="badge badge-orange">Valedictorian</span></p>
+            <p>Graduated as Valedictorian, demonstrating exceptional academic performance and leadership from an early age.</p>
+            <div class="timeline-tags">
+              <span>Elementary</span>
+              <span>Valedictorian</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="sh-num-block">
+          <span class="sh-big-num">04</span>
+          <span class="sh-label">M y &nbsp; W o r k</span>
+        </div>
+        <div class="sh-title-block">
+          <p class="section-tag">Featured Projects</p>
+          <h2 class="section-title">Things I've<br><strong>designed &amp; built</strong></h2>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/alumni.PNG" alt="Alumni Tracking System" loading="lazy"><div class="project-overlay"><span class="project-type">Web App</span></div></div>
+          <div class="project-body">
+            <h3>Alumni Tracking System</h3>
+            <p>Comprehensive system for tracking university alumni, managing records, and generating institutional reports.</p>
+            <div class="project-tags">
+              <span><i class="devicon-php-plain colored"></i>PHP</span>
+              <span><i class="devicon-laravel-plain colored"></i>Laravel</span>
+              <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/xf00889/alumnisystem" target="_blank" rel="noopener" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
               </a>
-              <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-gray-500/20 transition-all glow-hover group" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/payroll.PNG" alt="Payroll System" loading="lazy"><div class="project-overlay"><span class="project-type">Web App</span></div></div>
+          <div class="project-body">
+            <h3>Payroll Management System</h3>
+            <p>Automated payroll handling employee records, salary computation, deductions, and payslip generation.</p>
+            <div class="project-tags">
+              <span><i class="devicon-php-plain colored"></i>PHP</span>
+              <span><i class="devicon-laravel-plain colored"></i>Laravel</span>
+              <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/xf00889/django_payrollMS_with_QR_and_facerecognition" target="_blank" rel="noopener" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
               </a>
-              <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-blue-600/20 transition-all glow-hover group" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                </svg>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/cttmo.png" alt="CTTMO System" loading="lazy"><div class="project-overlay"><span class="project-type">Web App</span></div></div>
+          <div class="project-body">
+            <h3>CTTMO Web System</h3>
+            <p>Government office management system for the City Traffic and Transportation Management Office.</p>
+            <div class="project-tags">
+              <span><i class="devicon-python-plain colored"></i>Python</span>
+              <span><i class="devicon-django-plain colored"></i>Django</span>
+              <span><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+              <span><i class="devicon-tailwindcss-plain colored"></i>Tailwind</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/xf00889/CTTMO-Traffic-violation-Management-System" target="_blank" rel="noopener" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
               </a>
-              <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="glass p-2.5 rounded-full hover:bg-pink-600/20 transition-all glow-hover group" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-pink-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/healthcare.jpg" alt="Healthcare System" loading="lazy"><div class="project-overlay"><span class="project-type">Web App</span></div></div>
+          <div class="project-body">
+            <h3>Healthcare Management</h3>
+            <p>Patient management system for healthcare facilities — appointments, medical records, and billing.</p>
+            <div class="project-tags">
+              <span><i class="devicon-python-plain colored"></i>Python</span>
+              <span><i class="devicon-django-plain colored"></i>Django</span>
+              <span><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/xf00889/pharmacy_inventory_management_system" target="_blank" rel="noopener" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
               </a>
             </div>
-            
-            <!-- Floating decorative elements -->
-            <div class="absolute -top-4 -right-4 w-8 h-8 bg-blue-400/20 rounded-full blur-sm animate-pulse"></div>
-            <div class="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-400/20 rounded-full blur-sm animate-pulse" style="animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 -right-8 w-6 h-6 bg-cyan-400/20 rounded-full blur-sm animate-pulse" style="animation-delay: 2s;"></div>
           </div>
         </div>
-
-      </div>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <a href="#experience" class="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors group" aria-label="Scroll to experience section">
-        <span class="text-sm">Scroll to explore</span>
-        <svg class="w-6 h-6 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- Premium Experience Section with Vertical Timeline -->
-  <section id="experience" class="py-24 section-dark relative overflow-hidden">
-    <div class="container mx-auto px-4">
-      <h2 class="text-5xl font-bold text-center mb-20 text-gradient">Professional Experience</h2>
-      
-      <!-- Vertical Timeline -->
-      <div class="relative max-w-5xl mx-auto">
-        <!-- Timeline Line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-cyan-400 hidden md:block"></div>
-        
-        <!-- Timeline Items -->
-        <div class="space-y-16">
-          
-          <!-- Experience Item 1 - Most Recent (Right Side) -->
-          <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <!-- Left Side - Empty on desktop -->
-            <div class="hidden md:block"></div>
-            
-            <!-- Timeline Dot -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full border-4 border-black z-10 hidden md:block pulse-dot"></div>
-            
-            <!-- Right Side - Content -->
-            <div class="experience-card group">
-              <!-- Date Badge -->
-              <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-green-400 border border-green-400/30 text-sm text-mono mb-4">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                </svg>
-                <span>Feb 2025 – Present</span>
-              </div>
-              
-              <!-- Job Title -->
-              <h3 class="text-3xl md:text-4xl font-bold mb-4 text-white group-hover:text-gradient transition-all">
-                Full Stack Developer
-              </h3>
-              
-              <!-- Company & Location -->
-              <div class="flex flex-wrap items-center gap-3 mb-6">
-                <span class="text-blue-400 font-semibold text-xl">Freelance</span>
-                <span class="glass px-3 py-1.5 rounded-full text-sm text-cyan-400 border border-cyan-400/30 font-medium">
-                  Remote
-                </span>
-                <span class="glass px-3 py-1.5 rounded-full text-sm text-green-400 border border-green-400/30 font-medium">
-                  Active
-                </span>
-              </div>
-              
-              <!-- Description -->
-              <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                Developing modern web applications using cutting-edge technologies. 
-                Specializing in full-stack development with Python, Django, PHP, Laravel, and JavaScript frameworks.
-              </p>
-              
-              <!-- Divider -->
-              <div class="h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent mb-8"></div>
-              
-              <!-- Key Achievements -->
-              <div class="mb-8">
-                <div class="flex items-center gap-2 mb-4">
-                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Key Achievements</h4>
-                </div>
-                <div class="space-y-3">
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Built and deployed multiple full-stack applications with modern architecture</span>
-                  </div>
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Implemented responsive designs with modern UI/UX principles</span>
-                  </div>
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Collaborated with clients to deliver custom solutions on time</span>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Technologies -->
-              <div>
-                <div class="mb-2">
-                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Tech Stack</h4>
-                </div>
-                <div class="flex flex-wrap gap-1.5">
-                  <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>
-                    Python
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-green-500/10 text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                    Django
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zm-.921-5.063h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174h-1.092l-.704 3.625h-1.367l1.229-6.327zM19.097 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29z"/></svg>
-                    PHP
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 border border-red-400/30 text-xs font-medium hover:bg-red-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z"/></svg>
-                    Laravel
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                    JavaScript
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
-                    Git
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 text-xs font-medium hover:bg-cyan-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
-                    Tailwind CSS
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-400/30 text-xs font-medium hover:bg-indigo-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z"/></svg>
-                    Bootstrap
-                  </span>
-                </div>
-              </div>
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/todo.png" alt="Task Manager" loading="lazy"><div class="project-overlay"><span class="project-type">Web App</span></div></div>
+          <div class="project-body">
+            <h3>Task Management App</h3>
+            <p>Clean and intuitive task management with real-time updates, categories, and priority management.</p>
+            <div class="project-tags">
+              <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              <span><i class="devicon-django-plain colored"></i>Django</span>
+              <span><i class="devicon-postman-plain colored"></i>REST API</span>
+              <span><i class="devicon-tailwindcss-plain colored"></i>Tailwind</span>
             </div>
-          </div>
-          
-          <!-- Experience Item 2 (Left Side) -->
-          <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <!-- Timeline Dot -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full border-4 border-black z-10 hidden md:block pulse-dot"></div>
-            
-            <!-- Left Side - Content -->
-            <div class="experience-card group">
-              <!-- Date Badge -->
-              <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono mb-4">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                </svg>
-                <span>July 2024 – March 2025</span>
-              </div>
-              
-              <!-- Job Title -->
-              <h3 class="text-3xl md:text-4xl font-bold mb-4 text-white group-hover:text-gradient transition-all">
-                Intern
-              </h3>
-              
-              <!-- Company & Location -->
-              <div class="flex flex-wrap items-center gap-3 mb-6">
-                <span class="text-blue-400 font-semibold text-xl">NORSU-BSC</span>
-                <span class="glass px-3 py-1.5 rounded-full text-sm text-orange-400 border border-orange-400/30 font-medium">
-                  On-site
-                </span>
-                <span class="glass px-3 py-1.5 rounded-full text-sm text-gray-400 border border-gray-400/30 font-medium">
-                  Completed
-                </span>
-              </div>
-              
-              <!-- Description -->
-              <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                Gained hands-on experience in software development, database management, 
-                and system administration. Contributed to various projects and learned industry best practices.
-              </p>
-              
-              <!-- Divider -->
-              <div class="h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent mb-8"></div>
-              
-              <!-- Key Achievements -->
-              <div class="mb-8">
-                <div class="flex items-center gap-2 mb-4">
-                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Key Achievements</h4>
-                </div>
-                <div class="space-y-3">
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Assisted in developing web applications for university systems</span>
-                  </div>
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Learned database design and optimization techniques</span>
-                  </div>
-                  <div class="flex items-start gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                    </div>
-                    <span class="text-gray-300 flex-1">Collaborated with team members on software projects</span>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Technologies -->
-              <div>
-                <div class="mb-2">
-                  <h4 class="text-sm font-bold text-white uppercase tracking-wider">Tech Stack</h4>
-                </div>
-                <div class="flex flex-wrap gap-1.5">
-                  <span class="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zm-.921-5.063h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174h-1.092l-.704 3.625h-1.367l1.229-6.327zM19.097 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29z"/></svg>
-                    PHP
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 border border-red-400/30 text-xs font-medium hover:bg-red-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.642 5.43a.364.364 0 01.014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 01-.188.326L9.93 23.949a.316.316 0 01-.066.027c-.008.002-.016.008-.024.01a.348.348 0 01-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 01-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 01.023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034H.53L5.043.05a.375.375 0 01.375 0L9.93 2.647h.002c.015.01.027.021.04.033l.038.027c.013.014.02.03.033.045.008.011.02.021.025.033.01.02.017.038.024.058.003.011.01.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.01.01-.02.013-.032a.487.487 0 01.024-.059c.007-.012.018-.02.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.01.026-.023.041-.032h.001l4.513-2.598a.375.375 0 01.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.03.034.044.008.012.019.021.024.033.011.02.018.04.024.06.006.01.012.021.015.032zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283zm-4.51 7.75v-4.287l-2.147 1.225-6.126 3.498v4.325zM1.093 3.624v14.588l8.273 4.761v-4.325l-4.322-2.445-.002-.003H5.04c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.04-.01-.011-.021-.022-.028-.036h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043a.49.49 0 01-.008-.057c-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257zM5.23.81L1.47 2.974l3.76 2.164 3.758-2.164zm1.956 13.505l2.182-1.256V3.624l-1.58.91-2.182 1.255v9.435zm11.581-10.95l-3.76 2.163 3.76 2.163 3.759-2.164zm-.376 4.978L16.21 7.087 14.63 6.18v4.283l2.182 1.256 1.58.908zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.323 2.489-3.941 2.27z"/></svg>
-                    Laravel
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg>
-                    MySQL
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
-                    Git
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 text-xs font-medium hover:bg-cyan-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>
-                    Tailwind CSS
-                  </span>
-                  <span class="px-3 py-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-400/30 text-xs font-medium hover:bg-indigo-500/20 transition-colors flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z"/></svg>
-                    Bootstrap
-                  </span>
-                </div>                </div>
-              </div>
-            </div>
-            
-            <!-- Right Side - Empty on desktop -->
-            <div class="hidden md:block"></div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Premium Education Section with Vertical Timeline -->
-  <section id="education" class="py-24 section-darker relative overflow-hidden">
-    <div class="container mx-auto px-4">
-      <h2 class="text-5xl font-bold text-center mb-20 text-gradient">Education Journey</h2>
-      
-      <!-- Vertical Timeline -->
-      <div class="relative max-w-4xl mx-auto">
-        <!-- Timeline Line -->
-        <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-400 via-blue-400 to-purple-400"></div>
-        
-        <!-- Timeline Items -->
-        <div class="space-y-12">
-          
-          <!-- Education Item 1 - Most Recent -->
-          <div class="relative pl-20 md:pl-0">
-            <!-- Timeline Dot -->
-            <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
-            
-            <!-- Content -->
-            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <!-- Left side on desktop -->
-              <div class="hidden md:block md:text-right md:pr-12">
-                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2020 – 2025</span>
-                </div>
-              </div>
-              
-              <!-- Right side on desktop, full width on mobile -->
-              <div class="education-card group">
-                <!-- Mobile date -->
-                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-cyan-400 border border-cyan-400/30 text-sm text-mono mb-4">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2020 – 2025</span>
-                </div>
-                
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
-                  </svg>
-                </div>
-                
-                <!-- Degree -->
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
-                  B.S. in Information Technology
-                </h3>
-                
-                <!-- School -->
-                <p class="text-blue-400 font-semibold text-lg mb-4">NORSU-BSC</p>
-                
-                <!-- Achievement Badge -->
-                <div class="flex flex-wrap gap-2">
-                  <span class="glass px-4 py-2 rounded-lg text-green-400 border border-green-400/30 text-sm font-medium">
-                    Proficient in Desktop Development
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Education Item 2 -->
-          <div class="relative pl-20 md:pl-0">
-            <!-- Timeline Dot -->
-            <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
-            
-            <!-- Content -->
-            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <!-- Left side on desktop -->
-              <div class="hidden md:block md:text-right md:pr-12">
-                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-blue-400 border border-blue-400/30 text-sm text-mono">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2016 – 2018</span>
-                </div>
-              </div>
-              
-              <!-- Right side on desktop, full width on mobile -->
-              <div class="education-card group">
-                <!-- Mobile date -->
-                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-blue-400 border border-blue-400/30 text-sm text-mono mb-4">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2016 – 2018</span>
-                </div>
-                
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                </div>
-                
-                <!-- Degree -->
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
-                  General Academic Strand
-                </h3>
-                
-                <!-- School -->
-                <p class="text-blue-400 font-semibold text-lg mb-4">Miguel L. Daclan National High School</p>
-                
-                <!-- Achievement Badge -->
-                <div class="flex flex-wrap gap-2">
-                  <span class="glass px-4 py-2 rounded-lg text-yellow-400 border border-yellow-400/30 text-sm font-medium">
-                    With Honors
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Education Item 3 -->
-          <div class="relative pl-20 md:pl-0">
-            <!-- Timeline Dot -->
-            <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
-            
-            <!-- Content -->
-            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <!-- Left side on desktop -->
-              <div class="hidden md:block md:text-right md:pr-12">
-                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-indigo-400 border border-indigo-400/30 text-sm text-mono">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2012 – 2016</span>
-                </div>
-              </div>
-              
-              <!-- Right side on desktop, full width on mobile -->
-              <div class="education-card group">
-                <!-- Mobile date -->
-                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-indigo-400 border border-indigo-400/30 text-sm text-mono mb-4">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2012 – 2016</span>
-                </div>
-                
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                  </svg>
-                </div>
-                
-                <!-- Degree -->
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
-                  Vicente Z. Badon Campus
-                </h3>
-                
-                <!-- School -->
-                <p class="text-blue-400 font-semibold text-lg mb-4">Junior High School</p>
-                
-                <!-- Achievement Badge -->
-                <div class="flex flex-wrap gap-2">
-                  <span class="glass px-4 py-2 rounded-lg text-purple-400 border border-purple-400/30 text-sm font-medium">
-                    With Honors
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Education Item 4 -->
-          <div class="relative pl-20 md:pl-0">
-            <!-- Timeline Dot -->
-            <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full border-4 border-black z-10 pulse-dot"></div>
-            
-            <!-- Content -->
-            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
-              <!-- Left side on desktop -->
-              <div class="hidden md:block md:text-right md:pr-12">
-                <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-purple-400 border border-purple-400/30 text-sm text-mono">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2008 – 2012</span>
-                </div>
-              </div>
-              
-              <!-- Right side on desktop, full width on mobile -->
-              <div class="education-card group">
-                <!-- Mobile date -->
-                <div class="md:hidden inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-purple-400 border border-purple-400/30 text-sm text-mono mb-4">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                  </svg>
-                  <span>2008 – 2012</span>
-                </div>
-                
-                <!-- Icon -->
-                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-4">
-                  <svg class="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                  </svg>
-                </div>
-                
-                <!-- Degree -->
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-gradient transition-all">
-                  Bongalonan Elementary School
-                </h3>
-                
-                <!-- School -->
-                <p class="text-blue-400 font-semibold text-lg mb-4">Elementary Education</p>
-                
-                <!-- Achievement Badge -->
-                <div class="flex flex-wrap gap-2">
-                  <span class="glass px-4 py-2 rounded-lg text-cyan-400 border border-cyan-400/30 text-sm font-medium">
-                    Valedictorian
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Premium Projects Section with Enhanced Design -->
-  <section id="projects" class="py-24 section-dark relative overflow-hidden">
-    <div class="container mx-auto px-4">
-      <!-- Section Header with Subtitle -->
-      <div class="text-center mb-20">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4 text-gradient">Featured Projects</h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          Showcasing real-world solutions with measurable impact and modern technology stacks
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card 1: Portfolio Website -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/portfolio.PNG" alt="Portfolio Website" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2025</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">Personal Project</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            Portfolio Website
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Modern portfolio showcasing premium design principles with glassmorphism effects and smooth animations.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-blue-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-blue-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">Responsive design with 100% mobile compatibility and optimized performance</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                Django
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                HTML
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
-                CSS
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                JavaScript
-              </span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/myportfolio" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Card 2: NORSU Alumni Web Portal -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/alumni.PNG" alt="NORSU Alumni Web Portal" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2024</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">University Project</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            NORSU Alumni Portal
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Comprehensive web portal connecting alumni with networking, event coordination, and career opportunities.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-green-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-green-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">Streamlined alumni engagement with 500+ registered users and event management</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                Django
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                HTML
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z"/></svg>
-                Bootstrap
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                JavaScript
-              </span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/alumnisystem" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Card 3: CTTMO Traffic Management -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/cttmo.png" alt="CTTMO Traffic Management System" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2024</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">Government Project</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            Traffic Management System
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Comprehensive system for managing traffic violations, enforcement records, and administrative workflows.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-red-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-red-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">Reduced processing time by 60% with automated violation tracking and reporting</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                Django
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                HTML
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.77 11.24H9.956V8.202h2.152c1.17 0 1.834.522 1.834 1.466 0 1.008-.773 1.572-2.174 1.572zm.324 1.206H9.957v3.348h2.231c1.459 0 2.232-.585 2.232-1.685s-.795-1.663-2.326-1.663zM24 11.39v1.218c-1.128.108-1.817.944-2.226 2.268-.407 1.319-.463 2.937-.42 4.186.045 1.3-.968 2.5-2.337 2.5H4.985c-1.37 0-2.383-1.2-2.337-2.5.043-1.249-.013-2.867-.42-4.186-.41-1.324-1.1-2.16-2.228-2.268V11.39c1.128-.108 1.819-.944 2.227-2.268.408-1.319.464-2.937.42-4.186-.045-1.3.968-2.5 2.338-2.5h14.032c1.37 0 2.382 1.2 2.337 2.5-.043 1.249.013 2.867.42 4.186.409 1.324 1.098 2.16 2.226 2.268zm-7.927 2.817c0-1.354-.953-2.333-2.368-2.488v-.057c1.04-.169 1.856-1.135 1.856-2.213 0-1.537-1.213-2.538-3.062-2.538h-4.16v10.172h4.181c2.218 0 3.553-1.086 3.553-2.876z"/></svg>
-                Bootstrap
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                JavaScript
-              </span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/CTTMO-Traffic-violation-Management-System" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Card 4: Pharmacy Inventory System -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/healthcare.jpg" alt="Pharmacy Inventory System" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2024</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">Healthcare</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            Pharmacy Inventory
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Advanced inventory management with real-time stock tracking, automated reordering, and expiry alerts.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-cyan-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-cyan-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">Improved inventory accuracy by 85% and reduced waste through smart alerts</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-red-400 border border-red-400/30 text-xs font-medium hover:bg-red-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/></svg>
-                Java Netbeans
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg>
-                MySQL
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/></svg>
-                JavaFX
-              </span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/pharmacy_inventory_management_system" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Card 5: Smart Todo Application -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/todo.png" alt="Smart Todo Application" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2024</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">Productivity</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            Smart Todo App
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Task management with intelligent email notifications, priority levels, and team collaboration features.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-yellow-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-yellow-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">Automated email reminders boost task completion rates by 40%</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zm-.921-5.063h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174h-1.092l-.704 3.625h-1.367l1.229-6.327zM19.097 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29z"/></svg>
-                PHP
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-blue-400 border border-blue-400/30 text-xs font-medium hover:bg-blue-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg>
-                MySQL
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
-                HTML
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-cyan-400 border border-cyan-400/30 text-xs font-medium hover:bg-cyan-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
-                CSS
-              </span>
-              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors flex items-center gap-1.5">
-                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.955-1.797-1.856-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
-                JavaScript
-              </span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/CRUD_TODOLIST_EMAIL_UPDATE" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Project Card 6: Biometric Payroll System -->
-        <div class="glass-card group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Project Image/Icon -->
-          <div class="relative w-full h-48 rounded-lg mb-6 overflow-hidden group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/img/payroll.PNG" alt="Biometric Payroll System" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          </div>
-          
-          <!-- Project Meta -->
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-mono text-xs text-gray-500">2023</span>
-            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
-            <span class="text-xs text-gray-500">Enterprise</span>
-          </div>
-          
-          <!-- Project Title -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-            Biometric Payroll
-          </h3>
-          
-          <!-- Project Description -->
-          <p class="text-gray-300 leading-relaxed mb-4 text-base">
-            Advanced payroll system with QR code and facial recognition for secure, automated attendance tracking.
-          </p>
-          
-          <!-- Key Outcome/Impact -->
-          <div class="glass p-4 rounded-lg mb-6 border border-purple-400/20">
-            <div class="flex items-start gap-3">
-              <div>
-                <p class="text-sm font-semibold text-purple-400 mb-1">Impact</p>
-                <p class="text-sm text-gray-300">99.7% accuracy in attendance with zero time theft and instant payroll processing</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="glass px-3 py-1.5 rounded-lg text-green-400 border border-green-400/30 text-xs font-medium hover:bg-green-500/10 transition-colors">Django</span>
-              <span class="glass px-3 py-1.5 rounded-lg text-orange-400 border border-orange-400/30 text-xs font-medium hover:bg-orange-500/10 transition-colors">HTML</span>
-              <span class="glass px-3 py-1.5 rounded-lg text-purple-400 border border-purple-400/30 text-xs font-medium hover:bg-purple-500/10 transition-colors">Bootstrap</span>
-              <span class="glass px-3 py-1.5 rounded-lg text-yellow-400 border border-yellow-400/30 text-xs font-medium hover:bg-yellow-500/10 transition-colors">JavaScript</span>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="flex gap-3">
-            <a href="https://github.com/xf00889/django_payrollMS_with_QR_and_facerecognition" target="_blank" rel="noopener" 
-               class="btn-premium flex-1 text-center py-3 rounded-lg text-sm font-semibold">
-              <span class="flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Premium Hobbies Section -->
-  <section id="hobbies" class="py-24 section-darker relative overflow-hidden">
-    <div class="container mx-auto px-4">
-      <!-- Section Header -->
-      <div class="text-center mb-20">
-        <h2 class="text-5xl md:text-6xl font-bold mb-4 text-gradient">Hobbies & Interests</h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Beyond coding, these passions fuel my creativity and problem-solving skills
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Hobby Card 1: Gaming -->
-        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Decorative gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          
-          <div class="relative z-10">
-            <!-- Icon container with enhanced styling -->
-            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-              </svg>
-            </div>
-            
-            <!-- Title with enhanced typography -->
-            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-              Gaming
-            </h3>
-            
-            <!-- Divider -->
-            <div class="h-1 w-12 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-4 rounded-full"></div>
-            
-            <!-- Description with better line height -->
-            <p class="text-gray-300 leading-relaxed mb-4 px-2">
-              Exploring virtual worlds and strategic gameplay
-            </p>
-            
-            <!-- Skills connection -->
-            <div class="glass p-3 rounded-lg border border-blue-400/20">
-              <p class="text-sm text-blue-400 font-semibold mb-1">Develops</p>
-              <p class="text-xs text-gray-400">Strategic thinking & problem-solving</p>
+            <div class="project-actions">
+              <a href="https://github.com/xf00889/CRUD_TODOLIST_EMAIL_UPDATE" target="_blank" rel="noopener" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
+              </a>
             </div>
           </div>
         </div>
-        
-        <!-- Hobby Card 2: Reading -->
-        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Decorative gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          
-          <div class="relative z-10">
-            <!-- Icon container with enhanced styling -->
-            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+        <div class="project-card reveal" data-cursor="card">
+          <div class="project-img"><img src="assets/img/portfolio.PNG" alt="Portfolio" loading="lazy"><div class="project-overlay"><span class="project-type">Portfolio</span></div></div>
+          <div class="project-body">
+            <h3>Personal Portfolio</h3>
+            <p>This portfolio — designed and built from scratch with a focus on clean design, performance, and UX.</p>
+            <div class="project-tags">
+              <span><i class="devicon-html5-plain colored"></i>HTML</span>
+              <span><i class="devicon-tailwindcss-plain colored"></i>Tailwind CSS</span>
+              <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
             </div>
-            
-            <!-- Title with enhanced typography -->
-            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-              Reading
-            </h3>
-            
-            <!-- Divider -->
-            <div class="h-1 w-12 bg-gradient-to-r from-green-400 to-cyan-400 mx-auto mb-4 rounded-full"></div>
-            
-            <!-- Description with better line height -->
-            <p class="text-gray-300 leading-relaxed mb-4 px-2">
-              Continuous learning through books and articles
-            </p>
-            
-            <!-- Skills connection -->
-            <div class="glass p-3 rounded-lg border border-green-400/20">
-              <p class="text-sm text-green-400 font-semibold mb-1">Develops</p>
-              <p class="text-xs text-gray-400">Knowledge expansion & critical thinking</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Hobby Card 3: Badminton -->
-        <div class="glass-card text-center group hover:scale-105 transition-all duration-300 relative overflow-hidden">
-          <!-- Decorative gradient overlay -->
-          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          
-          <div class="relative z-10">
-            <!-- Icon container with enhanced styling -->
-            <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <!-- Racquet head (oval) -->
-                <ellipse cx="12" cy="7" rx="5" ry="6" stroke-width="2"/>
-                <!-- Strings horizontal -->
-                <line x1="8" y1="5" x2="16" y2="5" stroke-width="0.5" opacity="0.6"/>
-                <line x1="8" y1="7" x2="16" y2="7" stroke-width="0.5" opacity="0.6"/>
-                <line x1="8" y1="9" x2="16" y2="9" stroke-width="0.5" opacity="0.6"/>
-                <!-- Strings vertical -->
-                <line x1="10" y1="2" x2="10" y2="12" stroke-width="0.5" opacity="0.6"/>
-                <line x1="12" y1="1" x2="12" y2="13" stroke-width="0.5" opacity="0.6"/>
-                <line x1="14" y1="2" x2="14" y2="12" stroke-width="0.5" opacity="0.6"/>
-                <!-- Handle -->
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13v9"/>
-                <!-- Grip detail -->
-                <line x1="10.5" y1="20" x2="13.5" y2="20" stroke-width="2" stroke-linecap="round"/>
-                <line x1="10.5" y1="22" x2="13.5" y2="22" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            
-            <!-- Title with enhanced typography -->
-            <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-gradient transition-all">
-              Badminton
-            </h3>
-            
-            <!-- Divider -->
-            <div class="h-1 w-12 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mb-4 rounded-full"></div>
-            
-            <!-- Description with better line height -->
-            <p class="text-gray-300 leading-relaxed mb-4 px-2">
-              Staying active with competitive sports
-            </p>
-            
-            <!-- Skills connection -->
-            <div class="glass p-3 rounded-lg border border-orange-400/20">
-              <p class="text-sm text-orange-400 font-semibold mb-1">Develops</p>
-              <p class="text-xs text-gray-400">Teamwork & physical wellness</p>
+            <div class="project-actions">
+              <a href="#home" class="project-btn" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Project
+              </a>
             </div>
           </div>
         </div>
@@ -1325,150 +468,231 @@
     </div>
   </section>
 
-  <!-- Premium Contact Section -->
-  <section id="contact" class="py-24 section-dark relative overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute inset-0 opacity-30">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-      <!-- Section Header -->
-      <div class="text-center mb-12 md:mb-16 px-4">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-gradient">Let's Work Together</h2>
-        <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Have a project in mind or just want to chat? I'm always open to discussing new opportunities and creative ideas.
-        </p>
-      </div>
-      
-      <!-- Contact Cards -->
-      <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-4">
-        
-        <!-- Email Card -->
-        <div class="glass-card group hover:scale-105 transition-transform">
-          <div class="flex items-center gap-3 mb-4 md:mb-6">
-            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 md:w-7 md:h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-white">Email Me</h3>
-          </div>
-          <p class="text-sm md:text-base text-gray-400 mb-3 md:mb-4">Drop me a line directly</p>
-          <a href="mailto:hutchiejn@gmail.com" class="group/link flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-xs md:text-sm font-medium break-all">
-            <span class="break-all">hutchiejn@gmail.com</span>
-            <svg class="w-4 h-4 md:w-5 md:h-5 group-hover/link:translate-x-1 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+  <!-- HOBBIES -->
+  <section id="hobbies" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="sh-num-block">
+          <span class="sh-big-num">05</span>
+          <span class="sh-label">B e y o n d &nbsp; C o d e</span>
         </div>
-        
-        <!-- Response Time Card -->
-        <div class="glass-card group hover:scale-105 transition-transform">
-          <div class="flex items-center gap-3 mb-4 md:mb-6">
-            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 md:w-7 md:h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-white">Quick Response</h3>
-          </div>
-          <p class="text-sm md:text-base text-gray-400">I typically respond within 24 hours on business days</p>
-        </div>
-        
-        <!-- Availability Card -->
-        <div class="glass-card group hover:scale-105 transition-transform sm:col-span-2 lg:col-span-1">
-          <div class="flex items-center gap-3 mb-4 md:mb-6">
-            <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 md:w-7 md:h-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-white">Available</h3>
-          </div>
-          <p class="text-sm md:text-base text-gray-400">Currently accepting new projects and collaborations</p>
-        </div>
-        
-      </div>
-      
-      <!-- Social Links Section -->
-      <div class="max-w-4xl mx-auto mt-8 md:mt-12 px-4">
-        <div class="glass-card text-center">
-          <h3 class="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Connect on Social Media</h3>
-          <div class="flex justify-center gap-4 md:gap-6">
-            <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-blue-500/20 transition-all glow-hover group" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-blue-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-            <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-gray-500/20 transition-all glow-hover group" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-blue-600/20 transition-all glow-hover group" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-blue-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="glass p-4 md:p-6 rounded-xl hover:bg-pink-600/20 transition-all glow-hover group" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-pink-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-          </div>
+        <div class="sh-title-block">
+          <p class="section-tag">Hobbies &amp; Interests</p>
+          <h2 class="section-title">What I do<br><strong>outside work</strong></h2>
         </div>
       </div>
-      
+
+      <div class="hobbies-grid">
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Gaming</h3>
+          <p>Unwinding with strategy and RPG games. Gaming sharpens problem-solving and keeps the creative side alive.</p>
+          <div class="hobby-tags">
+            <span>Strategy</span><span>RPG</span><span>PC Gaming</span>
+          </div>
+        </div>
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Learning New Tech</h3>
+          <p>Constantly exploring new frameworks, tools, and languages. Staying current is part of the craft.</p>
+          <div class="hobby-tags">
+            <span>Open Source</span><span>Tutorials</span><span>Side Projects</span>
+          </div>
+        </div>
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Spending Time with Family</h3>
+          <p>Family time is the best recharge. Staying grounded and connected to the people who matter most.</p>
+          <div class="hobby-tags">
+            <span>Quality Time</span><span>Balance</span>
+          </div>
+        </div>
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          </div>
+          <h3>Browsing the Web</h3>
+          <p>Exploring design inspiration, dev blogs, and tech news. The internet is an endless source of ideas.</p>
+          <div class="hobby-tags">
+            <span>Design</span><span>Dev Blogs</span><span>Tech News</span>
+          </div>
+        </div>
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+          </div>
+          <h3>UI / UX Design</h3>
+          <p>Passionate about clean interfaces and great user experiences. Design and code go hand in hand.</p>
+          <div class="hobby-tags">
+            <span>Figma</span><span>Wireframing</span><span>Prototyping</span>
+          </div>
+        </div>
+
+        <div class="hobby-card reveal" data-cursor="card">
+          <div class="hobby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4z"/><path d="M12 8V2M12 22v-6M8 12H2M22 12h-6"/></svg>
+          </div>
+          <h3>Badminton</h3>
+          <p>Hitting the court whenever possible. Badminton keeps me active, sharp, and competitive — great balance to screen time.</p>
+          <div class="hobby-tags">
+            <span>Sports</span><span>Fitness</span><span>Competitive</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- Premium Footer -->
-  <footer class="py-12 section-darker border-t border-white/10">
-    <div class="container mx-auto px-4">
-      <div class="text-center">
-        <h3 class="text-2xl font-bold mb-4 text-gradient">Juby Neil Valiao</h3>
-        <p class="text-gray-400 mb-6">Thank you for visiting my portfolio!</p>
-        
-        <div class="flex justify-center gap-6 mb-6">
-          <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-300 transition-colors" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="sh-num-block">
+          <span class="sh-big-num">06</span>
+          <span class="sh-label">G e t &nbsp; I n &nbsp; T o u c h</span>
         </div>
-        
-        <div class="text-gray-500 text-sm">
-          <p>© 2025 Juby Neil Valiao. All rights reserved.</p>
-          <p class="mt-2 text-mono">Crafted with ❤️ using modern web technologies</p>
+        <div class="sh-title-block">
+          <p class="section-tag">Contact</p>
+          <h2 class="section-title">Let's work<br><strong>together</strong></h2>
+        </div>
+      </div>
+
+      <div class="contact-wrap">
+
+        <!-- LEFT PANEL -->
+        <div class="contact-left reveal-left">
+          <p class="contact-intro">
+            Have a project in mind, a question, or just want to say hi?
+            I'm always open to new opportunities and collaborations.
+          </p>
+
+          <!-- Availability badge -->
+          <div class="contact-avail">
+            <span class="avail-dot"></span>
+            <span>Currently available for freelance work</span>
+          </div>
+
+          <!-- Contact cards -->
+          <div class="contact-cards">
+            <a href="mailto:hutchiejn@gmail.com" class="ccard" data-cursor="link">
+              <div class="ccard-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="ccard-body">
+                <span class="ccard-label">Email</span>
+                <span class="ccard-value">hutchiejn@gmail.com</span>
+              </div>
+              <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <a href="https://github.com/xf00889" target="_blank" rel="noopener" class="ccard" data-cursor="link">
+              <div class="ccard-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div class="ccard-body">
+                <span class="ccard-label">GitHub</span>
+                <span class="ccard-value">github.com/xf00889</span>
+              </div>
+              <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" class="ccard" data-cursor="link">
+              <div class="ccard-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+              <div class="ccard-body">
+                <span class="ccard-label">LinkedIn</span>
+                <span class="ccard-value">Juby Neil Valiao</span>
+              </div>
+              <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <a href="https://www.facebook.com/jubyneil.valiao.7" target="_blank" rel="noopener" class="ccard" data-cursor="link">
+              <div class="ccard-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+              </div>
+              <div class="ccard-body">
+                <span class="ccard-label">Facebook</span>
+                <span class="ccard-value">jubyneil.valiao.7</span>
+              </div>
+              <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <a href="https://www.instagram.com/arxbuj/" target="_blank" rel="noopener" class="ccard" data-cursor="link">
+              <div class="ccard-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div class="ccard-body">
+                <span class="ccard-label">Instagram</span>
+                <span class="ccard-value">@arxbuj</span>
+              </div>
+              <svg class="ccard-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Response time note -->
+          <p class="contact-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Typical response time: within 24 hours
+          </p>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <form class="contact-form reveal-right" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Project inquiry, collaboration...">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full" data-cursor="button">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <p class="form-note">No spam, ever. I'll only reply to your message.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo">JNV<span>.</span></p>
+        <p class="footer-copy">© 2025 Juby Neil Valiao — Built with passion &amp; coffee.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/xf00889" target="_blank" rel="noopener" aria-label="GitHub" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+          <a href="https://www.linkedin.com/in/juby-neil-valiao-084b40237/" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor="link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Premium JavaScript -->
   <script src="js/main.js"></script>
-  
-  <!-- Vercel Analytics -->
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
