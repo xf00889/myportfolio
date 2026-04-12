@@ -102,6 +102,60 @@ setTimeout(() => {
   });
 }, 900);
 
+/* ===== TYPEWRITER ANIMATION ===== */
+(function initTypewriter() {
+  const el = document.getElementById('typewriter');
+  if (!el) return;
+
+  const roles = [
+    'Full Stack Developer',
+    'Python / Django Dev',
+    'PHP / Laravel Dev',
+    'UI / UX Enthusiast',
+    'Problem Solver',
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const TYPING_SPEED   = 80;   // ms per character when typing
+  const DELETING_SPEED = 40;   // ms per character when deleting
+  const PAUSE_AFTER    = 1800; // ms pause at full word
+  const PAUSE_BEFORE   = 300;  // ms pause before typing next word
+
+  function tick() {
+    const current = roles[roleIndex];
+
+    if (!isDeleting) {
+      // Typing
+      el.textContent = current.slice(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === current.length) {
+        // Finished typing — pause then start deleting
+        isDeleting = true;
+        setTimeout(tick, PAUSE_AFTER);
+        return;
+      }
+      setTimeout(tick, TYPING_SPEED + Math.random() * 40);
+    } else {
+      // Deleting
+      el.textContent = current.slice(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        // Finished deleting — move to next role
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(tick, PAUSE_BEFORE);
+        return;
+      }
+      setTimeout(tick, DELETING_SPEED);
+    }
+  }
+
+  // Start after hero intro animations settle
+  setTimeout(tick, 1400);
+})();
+
 /* ===== 3D CARD TILT ===== */
 const heroCard = document.getElementById('hero-card');
 if (heroCard) {

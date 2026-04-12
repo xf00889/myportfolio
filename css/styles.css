@@ -274,6 +274,17 @@ body.cursor-card #cursor-ring { width: 48px; height: 48px; border-color: var(--a
   text-transform: uppercase; color: var(--accent);
   font-family: 'JetBrains Mono', monospace;
 }
+.type-cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  margin-left: 1px;
+  animation: cursorBlink 0.75s step-end infinite;
+}
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
 
 /* BIG headline */
 .hero-headline {
@@ -300,16 +311,19 @@ body.cursor-card #cursor-ring { width: 48px; height: 48px; border-color: var(--a
 
 .hl-outline {
   display: inline-block;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 60%, var(--accent-3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-stroke: 0;
   transform: translateY(110%);
   animation: slideUp 0.8s var(--ease-spring) forwards;
   animation-delay: 0.3s;
-  transition: color 0.3s, -webkit-text-stroke-color 0.3s;
+  filter: brightness(1);
+  transition: filter 0.3s;
 }
 .hl-outline:hover {
-  color: var(--accent);
-  -webkit-text-stroke-color: transparent;
+  filter: brightness(1.2);
 }
 
 @keyframes slideUp {
