@@ -120,12 +120,13 @@ body.cursor-card #cursor-ring { width: 48px; height: 48px; border-color: var(--a
 }
 
 .nav-logo {
-  font-size: 1.375rem; font-weight: 900;
-  letter-spacing: -0.06em; color: var(--text);
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: -0.02em; color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
   transition: opacity var(--t);
 }
 .nav-logo:hover { opacity: 0.7; }
-.nav-logo span { color: var(--accent); }
+.nav-logo span { color: var(--accent); font-weight: 400; }
 
 .nav-links { display: flex; gap: 0.125rem; margin-left: auto; }
 .nav-links a {
@@ -932,27 +933,32 @@ body.cursor-card #cursor-ring { width: 48px; height: 48px; border-color: var(--a
   margin-top: 1.25rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
 }
 
 .project-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  padding: 0.6875rem 1.75rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
   border-radius: 8px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  transition: color var(--t), border-color var(--t), background var(--t), transform var(--t) var(--ease-spring);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  transition: opacity var(--t), transform var(--t) var(--ease-spring), box-shadow var(--t);
   cursor: none;
+  width: 100%;
+  max-width: 220px;
 }
 .project-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
 .project-btn:hover {
-  color: var(--text);
-  border-color: var(--accent);
-  background: var(--accent-glow);
+  opacity: 0.88;
+  box-shadow: 0 8px 24px var(--accent-glow);
   transform: translateY(-2px);
 }
 
